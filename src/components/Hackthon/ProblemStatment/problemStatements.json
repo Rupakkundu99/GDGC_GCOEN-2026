@@ -1,0 +1,373 @@
+[
+  {
+    "statement": "Build a gamified app focused on mental health, offering mindfulness exercises and emotional well-being challenges.",
+    "description": "The app should guide users through mindfulness exercises, daily mood tracking, and stress-relief techniques like deep breathing or journaling. Include rewards, progress tracking, and achievement systems that encourage users to develop healthy mental habits over time.",
+    "category": "Software",
+    "id": "PS001",
+    "themes": ["Gamified Learning "]
+  },
+  {
+    "statement": "Create a gamified health and fitness app that motivates users to complete workouts and track their fitness progress.",
+    "description": "Design the app so users can earn points for completing daily workouts, hitting fitness goals, and tracking health metrics (e.g., steps, calories burned). Include virtual badges, rewards, or character upgrades as incentives for maintaining healthy habits over time.",
+    "category": "Software",
+    "id": "PS002",
+    "themes": ["Gamified Learning "]
+  },
+  {
+    "statement": "Design a gamified app that teaches personal finance through budgeting, saving, and investing challenges.",
+    "description": "The game should simulate real-life financial situations where users make decisions on spending, investing, and saving. As players progress, they unlock advanced financial tools or scenarios. Include achievements for meeting savings goals or mastering financial concepts.",
+    "category": "Software",
+    "id": "PS003",
+    "themes": ["Gamified Learning "]
+  },
+  {
+    "statement": "Develop a geography game that teaches countries, capitals, and landmarks through quizzes and fun, competitive challenges.",
+    "description": "The game could feature maps and quizzes that challenge users to identify countries, capitals, or historical landmarks. As users progress, they unlock new regions or continents to explore. Create a virtual travel experience with rewards for completing specific geography milestones.",
+    "category": "Software",
+    "id": "PS004",
+    "themes": ["Gamified Learning "]
+  },
+  {
+    "statement": "Create a language learning app with multiplayer features where users compete in vocabulary and grammar challenges.",
+    "description": "The platform should support multiple languages and offer multiplayer modes where users compete against each other or collaborate to complete language-based missions. Incorporate language puzzles, spelling bees, and timed challenges to boost engagement.",
+    "category": "Software",
+    "id": "PS005",
+    "themes": ["Gamified Learning "]
+  },
+  {
+    "statement": "Design a gamified history platform that lets users explore historical events through quests, time travel, and interactive challenges.",
+    "description": "Create an engaging game-based experience where users complete quests based on historical events or periods (e.g., Ancient Egypt, the Renaissance). They should collect artifacts, make decisions that affect historical outcomes, and receive rewards for completing each level or mission.",
+    "category": "Software",
+    "id": "PS006",
+    "themes": ["Gamified Learning "]
+  },
+  {
+    "statement": "Build a gamified virtual science lab where students can conduct interactive experiments and solve scientific challenges.",
+    "description": "The virtual lab should allow students to mix chemicals, simulate physics experiments, or perform dissections. As users complete tasks, they earn badges and unlock new experiments. Add educational games that explain scientific concepts through visual storytelling.",
+    "category": "Software",
+    "id": "PS007",
+    "themes": ["Gamified Learning "]
+  },
+  {
+    "statement": "Develop a gamified coding platform with interactive challenges and coding exercises to make learning programming fun.",
+    "description": "Include interactive coding challenges where users can level up by completing exercises in various languages like Python, JavaScript, or HTML/CSS. Introduce quizzes, debugging challenges, and real-world projects that allow users to unlock new courses and tutorials as they progress.",
+    "category": "Software",
+    "id": "PS008",
+    "themes": ["Gamified Learning "]
+  },
+  {
+    "statement": "Create a gamified platform that helps users expand their vocabulary using challenges, quizzes, and puzzles.",
+    "description": "The platform should allow users to explore various word categories (e.g., science, business, everyday language) and use words in sentences to gain points. Include mini-games like crossword puzzles, flashcards, or word searches that reinforce vocabulary skills in a fun way.",
+    "category": "Software",
+    "id": "PS009",
+    "themes": ["Gamified Learning "]
+  },
+  {
+    "statement": "Design a mobile app that teaches math through gamification, with levels, challenges, and rewards tailored to users’ progress.",
+    "description": "Create an app that adapts to different difficulty levels and covers basic arithmetic to more complex math concepts, rewarding users with virtual badges or points for solving problems. The app should feature timed challenges, boss battles, and achievement systems.",
+    "category": "Software",
+    "id": "PS010",
+    "themes": ["Gamified Learning "]
+  },
+  {
+    "statement": "Develop an AI-based diagnostic tool that assists doctors in identifying rare diseases by analyzing patient data, such as medical history, symptoms, and lab results.",
+    "description": "The system should use machine learning to match patient data with rare disease profiles, helping doctors make accurate diagnoses faster. It could also suggest relevant tests and treatments, improving early detection and saving lives.",
+    "category": "Software",
+    "id": "PS011",
+    "themes": ["Healthtech / MedTech / Biotech"]
+  },
+  {
+    "statement": "Design a wearable device that continuously monitors a person’s health metrics (e.g., heart rate, blood oxygen, blood sugar, etc.) and provides real-time alerts for abnormal readings.",
+    "description": "The device should be lightweight and user-friendly, providing real-time health data to users via a mobile app. Alerts should be sent to both the user and their healthcare provider if any health metrics fall outside safe ranges, enabling quick intervention.",
+    "category": "Hardware",
+    "id": "PS012",
+    "themes": ["Healthtech / MedTech / Biotech"]
+  },
+  {
+    "statement": "Create an AI-powered platform to accelerate drug discovery by analyzing existing chemical compounds and predicting their effectiveness in treating specific diseases.",
+    "description": "The platform should use machine learning algorithms to analyze large datasets of chemical compounds, medical research, and patient outcomes to predict which molecules have the highest potential for developing effective treatments.",
+    "category": "Software",
+    "id": "PS013",
+    "themes": ["Healthtech / MedTech / Biotech"]
+  },
+  {
+    "statement": "Design a system that creates personalized treatment plans for patients based on their genetic data, medical history, and lifestyle.",
+    "description": "The system should analyze the patient’s genomic data (e.g., DNA sequences), medical conditions, and lifestyle choices to recommend tailored treatments, including medications, therapies, and lifestyle changes, improving treatment outcomes.",
+    "category": "Software",
+    "id": "PS014",
+    "themes": ["Healthtech / MedTech / Biotech"]
+  },
+  {
+    "statement": "Develop an AI-powered chatbot that provides emotional support, mental health assessments, and coping strategies for individuals dealing with stress, anxiety, and depression.",
+    "description": "The chatbot should be able to offer empathetic conversations, assess mental health through conversational cues, suggest activities for improving well-being, and direct users to professional help when necessary.",
+    "category": "Software",
+    "id": "PS015",
+    "themes": ["Healthtech / MedTech / Biotech"]
+  },
+  {
+    "statement": "Develop a smart pill dispenser that ensures patients take their medications on time and as prescribed, with reminders and dosage tracking.",
+    "description": "The device should dispense the correct dosage at set times, alert the user if a dose is missed, and allow caregivers or family members to track medication adherence remotely via an app.",
+    "category": "Hardware",
+    "id": "PS016",
+    "themes": ["Healthtech / MedTech / Biotech"]
+  },
+  {
+    "statement": "Create an innovative, sustainable solution to manage and recycle medical waste, reducing environmental impact while ensuring patient safety and compliance with regulations.",
+    "description": "The system should focus on safely disposing of single-use medical devices, packaging, and hazardous materials. It could include tracking, sorting, and recycling systems to minimize waste and support healthcare facilities in adopting environmentally responsible practices.",
+    "category": "Software",
+    "id": "PS017",
+    "themes": ["Healthtech / MedTech / Biotech"]
+  },
+  {
+    "statement": "Design an app that offers personalized therapy sessions for mental health, using AI to adapt to users’ emotional states, needs, and progress over time.",
+    "description": "The app should offer cognitive behavioral therapy (CBT), mindfulness exercises, and emotional assessments. It should adjust therapy content and provide real-time mental health support based on user input, mood, and personal history.",
+    "category": "Software",
+    "id": "PS018",
+    "themes": ["Healthtech / MedTech / Biotech"]
+  },
+  {
+    "statement": "Create an AI-based tool that can detect early signs of Alzheimer’s or other cognitive impairments using voice analysis, speech patterns, and behavioral cues.",
+    "description": "The platform should analyze conversations or recorded speech patterns of patients to detect subtle cognitive changes. It should flag potential early signs of dementia, allowing doctors to intervene at an early stage.",
+    "category": "Software",
+    "id": "PS019",
+    "themes": ["Healthtech / MedTech / Biotech"]
+  },
+  {
+    "statement": "Design an IoT-based system to automate the care of indoor plants.",
+    "description": "Build a system that uses sensors to monitor soil moisture, light levels, and temperature. Automate watering, lighting, and nutrient supply to ensure optimal plant growth. Include notifications and alerts for plant care status.",
+    "category": "Hardware",
+    "id": "PS020",
+    "themes": ["Smart Automation "]
+  },
+  {
+    "statement": "Develop an AI-based automated financial portfolio management system that continuously analyzes market data, adjusts asset allocations, and rebalances portfolios based on user risk profiles and goals.",
+    "description": "The system should automatically monitor market conditions and make real-time adjustments to users’ portfolios, considering factors like risk tolerance, financial goals, and market performance. It should notify users of significant changes or opportunities.",
+    "category": "Software",
+    "id": "PS021",
+    "themes": ["Smart Automation "]
+  },
+  {
+    "statement": "Create a smart system for automating document management, including scanning, sorting, categorizing, and extracting key information (e.g., invoices, contracts) using OCR (optical character recognition) and AI.",
+    "description": "The system should automatically scan incoming documents, extract relevant data (such as names, dates, amounts, etc.), and categorize them into the correct folders. It should also support automated workflows like generating reports or triggering actions based on document content.",
+    "category": "Software",
+    "id": "PS022",
+    "themes": ["Smart Automation "]
+  },
+  {
+    "statement": "Create a system to monitor vital signs like heart rate and temperature, displaying data on a dashboard and sending alerts for abnormal readings.",
+    "description": "Utilize sensors connected to a Raspberry Pi or ESP32 to measure health metrics like heart rate and temperature. The system should collect data and visualize it in real-time on a web dashboard. Alerts should be generated for any readings that fall outside of predefined healthy thresholds.",
+    "category": "Hardware",
+    "id": "PS023",
+    "themes": ["Smart Automation "]
+  },
+  {
+    "statement": "Create an automated system that optimizes energy consumption in households or businesses by controlling appliances, heating, and lighting based on usage patterns and external factors (e.g., time of day, weather).",
+    "description": "The system should use machine learning to monitor energy consumption trends and automatically adjust settings for appliances, lights, or thermostats to reduce waste and lower energy costs while maintaining comfort.",
+    "category": "Software",
+    "id": "PS024",
+    "themes": ["Smart Automation "]
+  },
+  {
+    "statement": "Develop a security system with motion detection, camera integration, and alerts with images sent to the user when unauthorized movement is detected.",
+    "description": "Utilize motion sensors to detect movement and a camera to capture images of the area. The system should trigger an alarm upon detecting unauthorized movement and send a notification along with images to the user. Facial recognition can also be added to enhance security.",
+    "category": "Hardware",
+    "id": "PS025",
+    "themes": ["Smart Automation "]
+  },
+  {
+    "statement": "Create an automated billing and invoicing system that automatically generates and sends invoices to clients, tracks payments, and handles late payment reminders.",
+    "description": "The system should integrate with existing CRM or ERP systems to track client purchases or subscriptions, automatically generate invoices based on contract terms, and send reminders for overdue payments. It should also include a feature to handle recurring billing cycles.",
+    "category": "Software",
+    "id": "PS026",
+    "themes": ["Smart Automation "]
+  },
+  {
+    "statement": "Develop a smart automation tool that automatically reviews, categorizes, and routes documents for approval, speeding up document workflows and minimizing human error.",
+    "description": "The system should analyze documents (e.g., contracts, proposals, legal documents) using AI and NLP to identify key sections, ensure they meet compliance standards, and route them to the appropriate person for approval. It should reduce manual errors and improve efficiency in document handling.",
+    "category": "Software",
+    "id": "PS027",
+    "themes": ["Smart Automation "]
+  },
+  {
+    "statement": "Create a smart package that can track its location via GPS and send alerts if it is misplaced or moved beyond a set range.",
+    "description": "Integrate a GPS module and ESP32 into a package. The system should allow the user to track the package's location through a mobile app. Set up a \"geofence\" so that the backpack will alert the user if it is moved too far from a defined location.",
+    "category": "Hardware",
+    "id": "PS028",
+    "themes": ["Smart Automation "]
+  },
+  {
+    "statement": "Develop an AI-powered tool that automates social media marketing campaigns, including content scheduling, post optimization, and performance tracking.",
+    "description": "The system should analyze audience behavior, schedule posts at optimal times, and automatically generate social media content tailored to the target audience. It should track engagement and adjust campaigns based on real-time performance metrics.",
+    "category": "Software",
+    "id": "PS029",
+    "themes": ["Smart Automation "]
+  },
+  {
+    "statement": "Develop a blockchain platform for invoice factoring that allows businesses to sell their unpaid invoices to investors in a secure, transparent, and automated manner.",
+    "description": "Using blockchain, businesses can list unpaid invoices, while investors can purchase them, with smart contracts automating the process of transaction validation, payment processing, and invoice transfer.",
+    "category": "Software",
+    "id": "PS030",
+    "themes": ["Blockchain for Security & Finance "]
+  },
+  {
+    "statement": "Design a blockchain-based system that enables financial institutions to track and detect suspicious transactions in real-time to prevent money laundering.",
+    "description": "The system should use blockchain to monitor transactions for irregular patterns or red flags and provide an immutable ledger of financial activities, making it easier to comply with AML regulations and ensure transparency.",
+    "category": "Software",
+    "id": "PS031",
+    "themes": ["Blockchain for Security & Finance "]
+  },
+  {
+    "statement": "Design a blockchain-based platform for tokenizing real estate properties, allowing fractional ownership, secure transactions, and transparent property management.",
+    "description": "The platform should allow users to invest in real estate by purchasing tokenized shares of properties, with blockchain ensuring secure, transparent ownership and transactions while simplifying the investment process.",
+    "category": "Software",
+    "id": "PS032",
+    "themes": ["Blockchain for Security & Finance "]
+  },
+  {
+    "statement": "Develop a decentralized credit scoring platform that uses blockchain to allow users to build and share their credit scores in a secure, transparent, and privacy-preserving way.",
+    "description": "The platform should gather credit history from multiple sources, such as bill payments or loans, and store it on a blockchain, enabling users to control and share their credit score with lenders or institutions.",
+    "category": "Software",
+    "id": "PS033",
+    "themes": ["Blockchain for Security & Finance "]
+  },
+  {
+    "statement": "Create a blockchain-based insurance platform that automates the insurance claims process using smart contracts, ensuring transparency and faster payouts.",
+    "description": "Smart contracts should automatically verify claims based on predefined conditions (e.g., weather data for flight delay insurance) and release payments once conditions are met, reducing fraud and administrative overhead.",
+    "category": "Software",
+    "id": "PS034",
+    "themes": ["Blockchain for Security & Finance "]
+  },
+  {
+    "statement": "Design a blockchain-based fraud detection system for financial transactions that can quickly identify suspicious activities and prevent fraudulent transactions in real-time.",
+    "description": "The system should use blockchain's transparency and immutability to track every transaction, flagging suspicious patterns (e.g., double-spending, unusual behavior) and alerting both users and financial institutions immediately.",
+    "category": "Software",
+    "id": "PS035",
+    "themes": ["Blockchain for Security & Finance "]
+  },
+  {
+    "statement": "Create a decentralized lending platform that uses blockchain to allow individuals to lend and borrow cryptocurrencies or stablecoins without intermediaries like banks.",
+    "description": "The platform should allow users to securely lend and borrow digital assets, using smart contracts for lending terms, interest rates, and collateral management, ensuring transparency and reducing the risk of default.",
+    "category": "Software",
+    "id": "PS036",
+    "themes": ["Blockchain for Security & Finance "]
+  },
+  {
+    "statement": "Develop a blockchain solution to track and verify the authenticity and origin of goods in a supply chain, ensuring security and transparency from manufacturing to delivery.",
+    "description": "Each asset or product in the supply chain should have a unique blockchain-based identifier, ensuring its traceability and authenticity. Smart contracts could automate payments and settlements once goods reach their destination.",
+    "category": "Software",
+    "id": "PS037",
+    "themes": ["Blockchain for Security & Finance "]
+  },
+  {
+    "statement": "Create an AI-based system that helps households and businesses optimize their use of renewable energy sources, reducing reliance on the grid and improving energy efficiency",
+    "description": "The system should integrate with solar panels, wind turbines, and other renewable energy sources to monitor energy production and consumption, automatically adjusting appliances and lighting to prioritize renewable energy usage when available.",
+    "category": "Hardware",
+    "id": "PS038",
+    "themes": ["Sustainability "]
+  },
+  {
+    "statement": "Design a smart platform that promotes sustainable urban mobility by providing real-time information on public transportation, bike-sharing, carpooling, and walking routes to reduce traffic congestion and emissions.",
+    "description": "The platform should offer users real-time information about alternative transportation options, integrating data from buses, trains, carpooling services, and bike-sharing programs to encourage eco-friendly travel choices.",
+    "category": "Software",
+    "id": "PS039",
+    "themes": ["Sustainability "]
+  },
+  {
+    "statement": "Design an AI-powered system that automatically adjusts the heating, ventilation, and air conditioning (HVAC) systems in a building to optimize energy consumption and reduce carbon emissions.",
+    "description": "The system should use machine learning to learn building occupancy patterns and environmental conditions, automatically adjusting HVAC settings to maintain comfort while minimizing energy usage.",
+    "category": "Hardware",
+    "id": "PS040",
+    "themes": ["Sustainability "]
+  },
+  {
+    "statement": "Design a recommendation engine that suggests eco-friendly products to consumers based on their preferences and environmental impact, promoting sustainable consumer choices",
+    "description": "The system should analyze consumer preferences (e.g., lifestyle, product categories) and recommend products with low environmental impact, such as items made from renewable resources, recyclable materials, or those with minimal packaging.",
+    "category": "Software",
+    "id": "PS041",
+    "themes": ["Sustainability "]
+  },
+  {
+    "statement": "Design a platform that helps homeowners identify and implement energy-efficient upgrades for their homes, such as insulation, solar panels, and energy-efficient appliances.",
+    "description": "The platform should provide personalized recommendations based on the home’s energy usage, local climate, and available incentives, helping homeowners reduce their energy consumption and carbon footprint.",
+    "category": "Hardware",
+    "id": "PS042",
+    "themes": ["Sustainability "]
+  },
+  {
+    "statement": "Create a platform that tracks and verifies carbon offset projects like reforestation, allowing individuals and businesses to contribute and see the impact of their contributions.",
+    "description": "The system should log contributions to carbon offset projects and display real-time data on the environmental impact (e.g., number of trees planted, carbon sequestered) to encourage continued participation.",
+    "category": "Software",
+    "id": "PS043",
+    "themes": ["Sustainability "]
+  },
+  {
+    "statement": "Develop a smart waste management system that uses IoT sensors to monitor waste levels in bins and optimize collection routes, reducing fuel consumption and environmental impact",
+    "description": "The system should use sensors to detect when bins are full and automatically notify waste collection services. It should optimize collection routes to minimize fuel usage and reduce the carbon footprint of waste management.",
+    "category": "Hardware",
+    "id": "PS044",
+    "themes": ["Sustainability "]
+  },
+  {
+    "statement": "Develop a blockchain-based system that tracks the lifecycle of packaging materials, ensuring that companies use sustainable, recyclable, and biodegradable materials.",
+    "description": "The system should track the source and end-of-life of packaging materials, allowing consumers and businesses to ensure that the materials used in products are sustainable and can be recycled or composted, promoting a circular economy.",
+    "category": "Hardware ",
+    "id": "PS045",
+    "themes": ["Sustainability "]
+  },
+  {
+    "statement": "Create a mobile app that tracks and calculates the carbon footprint of an individual’s daily activities, offering suggestions on how to reduce environmental impact.",
+    "description": "The app should track transportation, energy usage, food consumption, and other lifestyle choices, providing users with feedback on their carbon footprint and tips for more sustainable habits, such as taking public transportation or reducing food consumption having higher footprint.",
+    "category": "Software",
+    "id": "PS046",
+    "themes": ["Sustainability "]
+  },
+  {
+    "statement": "Create an app that tracks plastic waste in local communities, encouraging recycling by rewarding users for participating in collection and recycling programs.",
+    "description": "The app should allow users to log plastic waste collected in their communities and exchange points for rewards. It should also provide information about recycling centers and educational resources on reducing plastic consumption.",
+    "category": "Software",
+    "id": "PS047",
+    "themes": ["Sustainability "]
+  },
+  {
+    "statement": "Build an AI-powered chatbot that adapts to a student's learning pace and rewards progress with interactive games and challenges.",
+    "description": "Develop an AI-powered chatbot that personalizes learning by adapting to a student’s pace, assessing progress, and adjusting lesson difficulty. It should offer interactive quizzes, challenges, and explanations while integrating gamification elements like points, badges, and leaderboards to boost engagement. The system should provide targeted feedback, suggest learning paths, and support both text and voice interactions, making education more immersive and accessible across devices.",
+    "category": "Software",
+    "id": "PS048",
+    "themes": ["Gamified Learning", "EdTech"]
+  },
+  {
+    "statement": "AI-Powered Tutor with AR/VR Learning – Smart tutor with immersive learning.",
+    "description": "- Uses AR/VR simulations to explain complex concepts interactively.\n- AI-powered adaptive tests tailor questions based on student performance.\n- Real-time speech recognition to improve pronunciation and communication skills.",
+    "category": "Software",
+    "id": "PS049",
+    "themes": ["Gamified Learning", "EdTech"]
+  },
+  {
+    "statement": "Develop an AI-powered security system for messaging platforms to detect and prevent cyberbullying, harassment, scams, and illegal activities while ensuring privacy compliance.",
+    "description": "This system analyzes text, voice, and media in real time to detect threats such as cyberbullying, harassment, scams, and mental health risks, instantly alerting users or moderators. It features privacy-compliant AI monitoring, ensuring encrypted conversations remain secure while detecting phishing attempts, impersonation fraud, and offensive content. With multi-language support, it adapts to various dialects and messaging styles and seamlessly integrates with platforms like WhatsApp, Telegram, and Slack, providing a safe and moderated communication environment.",
+    "category": "Software",
+    "id": "PS050",
+    "themes": ["Blockchain for Security & Finance", "Social Impact"]
+  },
+  {
+    "statement": "Develop an AI-powered supply chain optimization system to reduce costs, improve efficiency, and prevent delays using machine learning and real-time analytics.",
+    "description": "This system leverages AI to analyze supplier data, shipping routes, and contract terms, ensuring cost-effective and efficient supply chain operations. It identifies optimal shipping routes and supplier costs, predicts material shortages to prevent delays, and scans contracts for hidden cost-saving opportunities. Machine learning models recommend supplier switches based on price trends, while real-time tracking ensures end-to-end visibility of shipments. By integrating predictive analytics with smart decision-making, the system enhances supply chain resilience, reduces expenses, and optimizes operations",
+    "category": "Software",
+    "id": "PS051",
+    "themes": ["Smart Automation", "Sustainability"]
+  },
+  {
+    "statement": "Build an AI-powered energy management system to optimize power consumption and reduce carbon footprint.",
+    "description": "This system analyzes energy usage patterns, predicts peak consumption times, and recommends energy-saving strategies. It integrates with smart grids, automates appliance control, and offers real-time monitoring to promote sustainable energy practices.",
+    "category": "Software",
+    "id": "PS052",
+    "themes": ["Sustainability", "Smart Automation"]
+  },
+  {
+    "statement": "The problem domain concerns wealth management for the common middle class people, focusing on Mutual Funds. Now why is there a very limited technique for wealth management like FDs, Stocks Trading, Crypto, Estate Planning, Corporate Bonds etc. However, all of them require time, focus, significant capital, involve risk factors, and offer limited interest rates. Mutual funds are investment vehicles that pool money from multiple investors to invest in a diversified portfolio of securities such as stocks, bonds, money market instruments, where they are managed by an asset management company (AMC).",
+    "description": "We have live web scraped data of Mutual Funds India, our goal is to present descriptive analysis to understand this data and their patterns, then make predictions on the given data to forecast the future performance of specific mutual funds, develop a dashboard to display past data and projections (frontend development not required). Finally, create an AI-based recommendation system for selected inputs: AMC Name, Category, Amount Invested, Tenure. ",
+    "category": "Software",
+    "id": "PS053",
+    "themes": ["AI", "ML"]
+  }
+]
