@@ -8,6 +8,7 @@ import AccountMenu from "../MyAccount/AccountMenu";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hoverGDGC, setHoverGDGC] = useState(false);
   const { isLogin } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
@@ -61,12 +62,14 @@ const Navbar = () => {
           style={{ borderWidth: 3, borderRadius: 24 }}
         >
           <button
-            className="flex items-center bg-white hover:bg-[#f28b82] border-black px-[15px] py-[14px] md:w-[337px] md:h-[65px] transition-colors duration-200"
-            style={{ borderWidth: 2, borderRadius: 24 }}
+            className="flex items-center border-black px-[15px] py-[14px] md:w-[337px] md:h-[65px] transition-colors"
+            style={{ borderWidth: 2, borderRadius: 24, backgroundColor: hoverGDGC ? "#f8d8d8" : "white" }}
             onClick={() => {
               router.push("/");
               setMenuOpen(false);
             }}
+            onMouseEnter={() => setHoverGDGC(true)}
+            onMouseLeave={() => setHoverGDGC(false)}
           >
             <Image src="/vector26.png" alt="GDGC triangles" width={80} height={43} />
             <span className="text-black font-['Poppins'] font-normal text-[29px] leading-[44px] ml-[29px] whitespace-nowrap">
