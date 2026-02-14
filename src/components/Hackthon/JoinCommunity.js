@@ -5,63 +5,59 @@ import React from "react";
 
 const JoinCommunity = () => {
   const router = useRouter();
+
   return (
-    <div className="w-full flex-col flex gap-5 p-5">
-      <h3 className="font-medium text-white  text-3xl md:py-5 md:text-5xl text-center">
-        Join Community
+    <div className="w-full flex flex-col items-center gap-10 py-16 px-4 bg-black">
+      <h3 className="font-semibold text-white text-3xl md:text-5xl text-center">
+        Join our Community
       </h3>
-      <div className='grid gap-2 md:gap-5 grid-rows-[156px] grid-flow-row [grid-template-areas:"Button1_._Button2"] justify-center'>
-        <div className="[grid-area:Button1]">
-          <button
-            onClick={() => {
-              router.push("https://discord.gg/SdJmdGaJ");
-            }}
-            className="p-0 border-0 bg-none hover:scale-100 transition-transform group"
-          >
-            <Image
-              src="/Discord_button_1.png"
-              alt="discord"
-              height={156}
-              width={156}
-              className="w-20 md:w-32 group-hover:hidden"
-            />
 
-            <Image
-              src="/Discord_button_2.png"
-              alt="discord"
-              height={156}
-              width={156}
-              className="w-20 md:w-32 group-hover:block hidden"
-            />
-          </button>
-        </div>
-        <div className="[grid-area:Button2]">
-          <button
-            onClick={() => {
-              router.push("https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ");
-            }}
-            className="p-0 border-0 bg-none hover:scale-100 transition-transform group"
-          >
-            <Image
-              src="/Whatsapp_button_1.png"
-              alt="whatsapp"
-              height={156}
-              width={156}
-              className="w-20 md:w-32 group-hover:hidden"
-            />
+      <div className="grid grid-cols-2 gap-6 md:gap-12">
+        {/* Discord */}
+        <CommunityCard
+          onClick={() => router.push("https://discord.gg/SdJmdGaJ")}
+          img1="/Discord_button_1.png"
+          img2="/Discord_button_2.png"
+          alt="Discord"
+        />
 
-            <Image
-              src="/Whatsapp_button_2.svg"
-              alt="discord"
-              height={156}
-              width={156}
-              className="w-20 md:w-32 group-hover:block hidden"
-            />
-          </button>
-        </div>
+        {/* WhatsApp */}
+        <CommunityCard
+          onClick={() =>
+            router.push("https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ")
+          }
+          img1="/Whatsapp_button_1.png"
+          img2="/Whatsapp_button_2.svg"
+          alt="WhatsApp"
+        />
       </div>
     </div>
   );
 };
 
 export default JoinCommunity;
+
+const CommunityCard = ({ onClick, img1, img2, alt }) => {
+  return (
+    <button
+      onClick={onClick}
+      className="group relative w-28 h-28 md:w-40 md:h-40 rounded-2xl border border-white/20 bg-black flex items-center justify-center transition-all duration-300 hover:scale-105 hover:border-white/40 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]"
+    >
+      <Image
+        src={img1}
+        alt={alt}
+        width={120}
+        height={120}
+        className="w-16 md:w-24 group-hover:hidden"
+      />
+      <Image
+        src={img2}
+        alt={alt}
+        width={120}
+        height={120}
+        className="w-16 md:w-24 hidden group-hover:block"
+      />
+    </button>
+  );
+};
+

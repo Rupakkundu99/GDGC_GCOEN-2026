@@ -18,7 +18,7 @@ export const metadata = {
 
 const Hackon = () => {
   return (
-    <div className="fixed  top-0  flex-col  flex md:gap-5 left-0 w-full  overflow-y-scroll overflow-scroll h-screen z-50 bg-Dark ">
+    <div className="fixed  top-0  flex-col  flex md:gap-5 left-0 w-full  overflow-y-scroll overflow-scroll h-screen z-50 bg-black ">
       <LandingPageHackOn />
       <HackOnInfo />
       <WhyParticipant />
