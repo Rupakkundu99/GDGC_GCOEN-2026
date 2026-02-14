@@ -14,32 +14,32 @@ const Navbar = () => {
 
   // List of menu items and their routes
   const menuItems = [
-    { name: "Home", path: "/", width: "w-[242px]", left: "left-[522px]" },
-    { name: "Events", path: "/Events", width: "w-[243px]", left: "left-[767px]" },
-    { name: "Teams", path: "/Teams", width: "w-[245px]", left: "left-[1012px]" },
-    { name: "Contact", path: "/ContactUs", width: "w-[302px]", left: "left-[1259px]" },
+    { name: "Home", path: "/", width: "md:w-[242px]" },
+    { name: "Events", path: "/Events", width: "md:w-[243px]" },
+    { name: "Teams", path: "/Teams", width: "md:w-[245px]" },
+    { name: "Contact us", path: "/ContactUs", width: "md:w-[302px]" },
   ];
 
   return (
     <div className="fixed w-full z-50">
-      {/* Mobile Header */}
-      <div className="md:hidden fixed top-4 left-1/2 -translate-x-1/2 w-[92vw] h-[64px] bg-black border-2 border-black rounded-[20px] flex items-center px-3">
-        <div className="bg-white border-2 border-black rounded-[18px] h-[48px] w-[220px] flex items-center gap-3 px-3">
-          <Image src="/vector26.png" alt="GDGC logo" width={60} height={32} />
-          <span
-            className="text-[16px] leading-[22px] text-black"
-            style={{ fontFamily: "Poppins, sans-serif" }}
+      {/* Mobile Menu Header */}
+      <div className="top-0 md:hidden fixed w-full right-0 flex justify-between items-center p-5 bg-blue">
+        <div className="flex items-center gap-5">
+          <button
+            className="text-white text-2xl focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
-            GDGC GCOEN
-          </span>
+            ☰
+          </button>
+          <p className="text-white  font-bold">
+            {pathname == "/" ? "HOME" : pathname.split("/")[1].toUpperCase()}
+          </p>
         </div>
-        <button
-          className="ml-auto bg-white border-2 border-black rounded-[18px] w-[56px] h-[48px] text-black text-2xl"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Open menu"
-        >
-          ☰
-        </button>
+        <div className="text-lg flex gap-2 items-center ">
+          {isLogin && (
+            <AccountMenu btnStyle=" flex items-center justify-center text-black border-2 font-semibold border-black p-2 w-8 h-8  bg-white rounded-full focus:outline-none" />
+          )}
+        </div>
       </div>
 
       {/* Background Overlay */}
@@ -52,16 +52,44 @@ const Navbar = () => {
 
       {/* Navbar Container */}
       <div
-        className={`fixed md:hidden top-[88px] left-1/2 -translate-x-1/2 w-[92vw] bg-black border-2 border-black rounded-[20px] p-3 shadow-lg transition-transform duration-300 ${
-          menuOpen ? "translate-y-0" : "-translate-y-[20px] opacity-0 pointer-events-none"
-        }`}
+        className={`z-[9999px] md:absolute md:top-6 md:left-1/2 md:-translate-x-1/2 fixed h-full bg-blue md:bg-transparent shadow-lg transform transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 md:shadow-none md:flex md:justify-center mt-0 top-0 md:items-center w-[300px] md:w-full md:max-w-[1562px] md:h-[80px]`}
       >
-        <div className="flex flex-col gap-3">
+        <div
+          className="flex flex-col bg-blue md:bg-black md:flex-row md:items-center md:justify-start gap-3 md:gap-0 overflow-hidden border-black w-full md:h-[80px] md:px-0"
+          style={{ borderWidth: 3, borderRadius: 24 }}
+        >
+          <button
+            className="flex items-center bg-white border-black px-[15px] py-[14px] md:w-[415px] md:h-[80px]"
+            style={{ borderWidth: 2, borderRadius: 24 }}
+            onClick={() => {
+              router.push("/");
+              setMenuOpen(false);
+            }}
+          >
+            <Image src="/vector26.png" alt="GDGC triangles" width={96} height={52} />
+            <span className="text-black font-['Poppins'] font-normal text-[36px] leading-[54px] ml-[29px] whitespace-nowrap">
+              GDGC GCOEN
+            </span>
+          </button>
+
+          <div
+            className="hidden md:block bg-white border-black md:w-[105px] md:h-[80px]"
+            style={{ borderWidth: 2, borderRadius: 24 }}
+          ></div>
+
           {menuItems.map((item) => (
             <button
               key={item.name}
-              className="w-full h-[52px] bg-white border-2 border-black rounded-[18px] text-[18px] text-black"
-              style={{ fontFamily: "Poppins, sans-serif" }}
+              className={`flex items-center justify-center bg-white border-black text-black font-['Poppins'] font-normal text-[36px] leading-[54px] md:h-[80px] ${
+                item.width
+              } ${
+                pathname === item.path || pathname.startsWith(`${item.path}/`)
+                  ? "bg-blue1"
+                  : "hover:bg-gray1"
+              }`}
+              style={{ borderWidth: 2, borderRadius: 24 }}
               onClick={() => {
                 router.push(item.path);
                 setMenuOpen(false);
@@ -70,41 +98,6 @@ const Navbar = () => {
               {item.name}
             </button>
           ))}
-        </div>
-        {isLogin && (
-          <div className="mt-3 flex justify-center">
-            <AccountMenu btnStyle="flex items-center justify-center text-black border-2 font-semibold border-black p-2 w-10 h-10 bg-white rounded-full focus:outline-none" />
-          </div>
-        )}
-      </div>
-
-      {/* Desktop Navbar */}
-      <div className="hidden md:block fixed top-0 left-0 w-full">
-        <div className="relative w-[1728px] h-[250px] mx-auto">
-          <div className="absolute left-[82px] top-[85px] w-[1562px] h-[80px] bg-black border-[3px] border-black rounded-[24px]">
-            <div className="absolute left-0 top-0 w-[415px] h-[80px] bg-white border-[2px] border-black rounded-[24px] flex items-center gap-4 px-[15px]">
-              <div className="w-[96px] h-[52px] relative">
-                <Image src="/vector26.png" alt="GDGC logo" fill style={{ objectFit: "contain" }} />
-              </div>
-              <span
-                className="text-[36px] leading-[54px] text-black"
-                style={{ fontFamily: "Poppins, sans-serif" }}
-              >
-                GDGC GCOEN
-              </span>
-            </div>
-
-            {menuItems.map((item) => (
-              <button
-                key={item.name}
-                className={`absolute top-0 h-[80px] ${item.left} ${item.width} bg-white border-[2px] border-black rounded-[24px] text-[36px] leading-[54px] text-black`}
-                style={{ fontFamily: "Poppins, sans-serif" }}
-                onClick={() => router.push(item.path)}
-              >
-                {item.name}
-              </button>
-            ))}
-          </div>
         </div>
       </div>
     </div>
