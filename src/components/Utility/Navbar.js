@@ -84,12 +84,10 @@ const Navbar = () => {
           ></div>
 
           {menuItems.map((item) => {
-            const isActive = pathname === item.path || pathname.startsWith(`${item.path}/`);
             const isHovered = hoverItem === item.name;
             
             let bgColor = "white";
-            if (isActive) bgColor = "#fffacd";
-            else if (isHovered) bgColor = "#ffe7a5";
+            if (isHovered) bgColor = "#fffacd";
             
             return (
               <button
