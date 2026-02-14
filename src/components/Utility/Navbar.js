@@ -88,7 +88,7 @@ const Navbar = () => {
             const isHovered = hoverItem === item.name;
             
             let bgColor = "white";
-            if (isActive) bgColor = "#cce4ff";
+            if (isActive) bgColor = "#fffacd";
             else if (isHovered) bgColor = "#ffe7a5";
             
             return (
