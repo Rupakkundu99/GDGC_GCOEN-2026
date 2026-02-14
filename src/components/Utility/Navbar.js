@@ -1,6 +1,7 @@
 "use client";
 
 import { useAuth } from "@/context/AuthContext";
+import { poppins400 } from "@/Fonts/Poppins";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -73,7 +74,7 @@ const Navbar = () => {
             onMouseLeave={() => setHoverGDGC(false)}
           >
             <Image src="/vector26.png" alt="GDGC triangles" width={80} height={43} />
-            <span className="text-black font-['Poppins'] font-normal text-[29px] leading-[44px] ml-[29px] whitespace-nowrap">
+            <span className={`text-black text-[29px] leading-[44px] ml-[29px] whitespace-nowrap ${poppins400.className}`}>
               GDGC GCOEN
             </span>
           </button>
@@ -92,7 +93,7 @@ const Navbar = () => {
             return (
               <button
                 key={item.name}
-                className={`flex items-center justify-center border-black text-black font-['Poppins'] font-normal text-[29px] leading-[44px] md:h-[65px] ${item.width} transition-colors`}
+                className={`flex items-center justify-center border-black text-black text-[29px] leading-[44px] md:h-[65px] ${item.width} transition-colors ${poppins400.className}`}
                 style={{ borderWidth: 2, borderRadius: 24, backgroundColor: bgColor }}
                 onClick={() => {
                   router.push(item.path);
