@@ -66,83 +66,156 @@ const Footer = () => {
   const router = useRouter();
 
   return (
-    <footer className="bg-white" style={{ paddingTop: "600px" }}>
-      <div className="container m-auto">
-        {/* Frame 124 - Bottom Box */}
-        <div className="flex justify-center py-8 px-5">
-          <div
-            className="border-2 border-black rounded-[62px] bg-white relative flex justify-center items-center"
-            style={{
-              width: "1250px",
-              height: "180px",
-              maxWidth: "95vw",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {/* Left Section - Social Icons */}
+    <>
+      {/* Desktop Footer */}
+      <footer className="hidden md:block bg-white" style={{ paddingTop: "600px" }}>
+        <div className="container m-auto">
+          {/* Frame 124 - Bottom Box */}
+          <div className="flex justify-center py-8 px-5">
             <div
+              className="border-2 border-black rounded-[62px] bg-white relative flex justify-center items-center"
               style={{
-                position: "absolute",
-                left: "20px",
+                width: "1250px",
+                height: "180px",
+                maxWidth: "95vw",
                 display: "flex",
-                flexDirection: "column",
-                gap: "8px",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              {/* Top Row - Instagram, WhatsApp, LinkedIn */}
-              <div style={{ display: "flex", gap: "8px" }}>
-                <SocialLink
-                  href="https://www.instagram.com/gdgcgcoen/"
-                  imageAlt="Instagram"
-                  imageSrc="/insta.png"
-                  whiteImageSrc="/whiteinsta.png"
-                />
-                <SocialLink
-                  href="https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ"
-                  imageAlt="WhatsApp"
-                  imageSrc="/whatsapp.png"
-                  whiteImageSrc="/whitewhatsapp.png"
-                />
-                <SocialLink
-                  href="https://www.linkedin.com/company/gdgoncampus-gcoen/"
-                  imageAlt="LinkedIn"
-                  imageSrc="/linkedin.png"
-                  whiteImageSrc="/whitelinkedin.png"
-                />
+              {/* Left Section - Social Icons */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "8px",
+                }}
+              >
+                {/* Top Row - Instagram, WhatsApp, LinkedIn */}
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <SocialLink
+                    href="https://www.instagram.com/gdgcgcoen/"
+                    imageAlt="Instagram"
+                    imageSrc="/insta.png"
+                    whiteImageSrc="/whiteinsta.png"
+                  />
+                  <SocialLink
+                    href="https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ"
+                    imageAlt="WhatsApp"
+                    imageSrc="/whatsapp.png"
+                    whiteImageSrc="/whitewhatsapp.png"
+                  />
+                  <SocialLink
+                    href="https://www.linkedin.com/company/gdgoncampus-gcoen/"
+                    imageAlt="LinkedIn"
+                    imageSrc="/linkedin.png"
+                    whiteImageSrc="/whitelinkedin.png"
+                  />
+                </div>
+                {/* Bottom Row - X, YouTube */}
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <SocialLink
+                    href="https://x.com/GDGCGcoen"
+                    imageAlt="X"
+                    imageSrc="/x.png"
+                    whiteImageSrc="/whiteX.png"
+                  />
+                  <SocialLink
+                    href="https://www.youtube.com/c/gdscgcoen3822"
+                    imageAlt="YouTube"
+                    imageSrc="/youtube.png"
+                    whiteImageSrc="/whiteyoutube.png"
+                  />
+                </div>
               </div>
-              {/* Bottom Row - X, YouTube */}
-              <div style={{ display: "flex", gap: "8px" }}>
-                <SocialLink
-                  href="https://x.com/GDGCGcoen"
-                  imageAlt="X"
-                  imageSrc="/x.png"
-                  whiteImageSrc="/whiteX.png"
-                />
-                <SocialLink
-                  href="https://www.youtube.com/c/gdscgcoen3822"
-                  imageAlt="YouTube"
-                  imageSrc="/youtube.png"
-                  whiteImageSrc="/whiteyoutube.png"
-                />
-              </div>
-            </div>
 
-            <img
-              src="/gdgfooter.png"
-              alt="Vector"
-              style={{
-                width: "75px",
-                height: "40px",
-              }}
-            />
-            <LogoImage />
+              <img
+                src="/gdgfooter.png"
+                alt="Vector"
+                style={{
+                  width: "75px",
+                  height: "40px",
+                }}
+              />
+              <LogoImage />
+            </div>
           </div>
         </div>
+      </footer>
 
-      </div>
-    </footer>
+      {/* Mobile Footer */}
+      <footer className="block md:hidden bg-white px-4 py-8">
+        <div style={{
+          border: "2px solid #000000",
+          borderRadius: "20px",
+          padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "20px",
+        }}>
+          {/* Social Icons */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center" }}>
+            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
+              <SocialLink
+                href="https://www.instagram.com/gdgcgcoen/"
+                imageAlt="Instagram"
+                imageSrc="/insta.png"
+                whiteImageSrc="/whiteinsta.png"
+              />
+              <SocialLink
+                href="https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ"
+                imageAlt="WhatsApp"
+                imageSrc="/whatsapp.png"
+                whiteImageSrc="/whitewhatsapp.png"
+              />
+              <SocialLink
+                href="https://www.linkedin.com/company/gdgoncampus-gcoen/"
+                imageAlt="LinkedIn"
+                imageSrc="/linkedin.png"
+                whiteImageSrc="/whitelinkedin.png"
+              />
+            </div>
+            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
+              <SocialLink
+                href="https://x.com/GDGCGcoen"
+                imageAlt="X"
+                imageSrc="/x.png"
+                whiteImageSrc="/whiteX.png"
+              />
+              <SocialLink
+                href="https://www.youtube.com/c/gdscgcoen3822"
+                imageAlt="YouTube"
+                imageSrc="/youtube.png"
+                whiteImageSrc="/whiteyoutube.png"
+              />
+            </div>
+          </div>
+
+          {/* Center Logo */}
+          <img
+            src="/gdgfooter.png"
+            alt="Vector"
+            style={{
+              width: "60px",
+              height: "auto",
+            }}
+          />
+
+          {/* Logo - Adjusted for Mobile */}
+          <img
+            src="/whitegdgc.png"
+            alt="GDGC Logo"
+            style={{
+              width: "280px",
+              height: "auto",
+            }}
+          />
+        </div>
+      </footer>
+    </>
   );
 };
 
