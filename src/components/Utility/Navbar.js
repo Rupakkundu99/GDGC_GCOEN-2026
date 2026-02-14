@@ -58,11 +58,11 @@ const Navbar = () => {
       >
         <div
           className="flex flex-col bg-blue md:bg-black md:flex-row md:items-center md:justify-start gap-3 md:gap-0 overflow-hidden border-black w-full md:h-[60px] md:px-0"
-          style={{ borderWidth: 3, borderRadius: 8 }}
+          style={{ borderWidth: 3, borderRadius: 24 }}
         >
           <button
             className="flex items-center bg-white border-black px-[15px] py-[14px] md:w-[318px] md:h-[60px]"
-            style={{ borderWidth: 2, borderRadius: 8 }}
+            style={{ borderWidth: 2, borderRadius: 24 }}
             onClick={() => {
               router.push("/");
               setMenuOpen(false);
@@ -76,7 +76,7 @@ const Navbar = () => {
 
           <div
             className="hidden md:block bg-white border-black md:w-[80px] md:h-[60px]"
-            style={{ borderWidth: 2, borderRadius: 8 }}
+            style={{ borderWidth: 2, borderRadius: 24 }}
           ></div>
 
           {menuItems.map((item) => (
@@ -89,7 +89,7 @@ const Navbar = () => {
                   ? "bg-blue1"
                   : "hover:bg-gray1"
               }`}
-              style={{ borderWidth: 2, borderRadius: 8 }}
+              style={{ borderWidth: 2, borderRadius: 24 }}
               onClick={() => {
                 router.push(item.path);
                 setMenuOpen(false);
