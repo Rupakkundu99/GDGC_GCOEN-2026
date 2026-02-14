@@ -14,10 +14,10 @@ const Navbar = () => {
 
   // List of menu items and their routes
   const menuItems = [
-    { name: "Home", path: "/", width: "md:w-[212px]" },
-    { name: "Events", path: "/Events", width: "md:w-[213px]" },
-    { name: "Teams", path: "/Teams", width: "md:w-[214px]" },
-    { name: "Contact us", path: "/ContactUs", width: "md:w-[264px]" },
+    { name: "Home", path: "/", width: "md:w-[186px]" },
+    { name: "Events", path: "/Events", width: "md:w-[186px]" },
+    { name: "Teams", path: "/Teams", width: "md:w-[187px]" },
+    { name: "Contact us", path: "/ContactUs", width: "md:w-[231px]" },
   ];
 
   return (
@@ -54,14 +54,14 @@ const Navbar = () => {
       <div
         className={`z-[9999px] md:absolute md:top-6 md:left-1/2 md:-translate-x-1/2 fixed h-full bg-blue md:bg-transparent shadow-lg transform transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:shadow-none md:flex md:justify-center mt-0 top-0 md:items-center w-[300px] md:w-full md:max-w-[1358px] md:h-[70px]`}
+        } md:translate-x-0 md:shadow-none md:flex md:justify-center mt-0 top-0 md:items-center w-[300px] md:w-full md:max-w-[1188px] md:h-[60px]`}
       >
         <div
-          className="flex flex-col bg-blue md:bg-black md:flex-row md:items-center md:justify-start gap-3 md:gap-0 overflow-hidden border-black w-full md:h-[70px] md:px-0"
+          className="flex flex-col bg-blue md:bg-black md:flex-row md:items-center md:justify-start gap-3 md:gap-0 overflow-hidden border-black w-full md:h-[60px] md:px-0"
           style={{ borderWidth: 3, borderRadius: 24 }}
         >
           <button
-            className="flex items-center bg-white border-black px-[15px] py-[14px] md:w-[363px] md:h-[70px]"
+            className="flex items-center bg-white border-black px-[15px] py-[14px] md:w-[318px] md:h-[60px]"
             style={{ borderWidth: 2, borderRadius: 24 }}
             onClick={() => {
               router.push("/");
@@ -69,20 +69,20 @@ const Navbar = () => {
             }}
           >
             <Image src="/vector26.png" alt="GDGC triangles" width={96} height={52} />
-            <span className="text-black font-['Poppins'] font-normal text-[32px] leading-[48px] ml-[29px] whitespace-nowrap">
+            <span className="text-black font-['Poppins'] font-normal text-[28px] leading-[42px] ml-[29px] whitespace-nowrap">
               GDGC GCOEN
             </span>
           </button>
 
           <div
-            className="hidden md:block bg-white border-black md:w-[92px] md:h-[70px]"
+            className="hidden md:block bg-white border-black md:w-[80px] md:h-[60px]"
             style={{ borderWidth: 2, borderRadius: 24 }}
           ></div>
 
           {menuItems.map((item) => (
             <button
               key={item.name}
-              className={`flex items-center justify-center bg-white border-black text-black font-['Poppins'] font-normal text-[32px] leading-[48px] md:h-[70px] ${
+              className={`flex items-center justify-center bg-white border-black text-black font-['Poppins'] font-normal text-[28px] leading-[42px] md:h-[60px] ${
                 item.width
               } ${
                 pathname === item.path || pathname.startsWith(`${item.path}/`)
