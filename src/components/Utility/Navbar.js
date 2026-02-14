@@ -55,10 +55,10 @@ const Navbar = () => {
 
       {/* Navbar Container */}
       <div
-        className={`z-[9999px] md:relative md:top-10 md:left-1/2 fixed left-0 top-12 md:!top-10 md:!left-1/2 md:!fixed-none bg-blue md:bg-transparent shadow-lg transform transition-transform duration-300 ${
+        className={`z-[9999px] md:relative md:top-10 md:left-1/2 md:-translate-x-1/2 fixed left-0 top-12 bg-blue md:bg-transparent shadow-lg transform transition-transform duration-300 ${
           menuOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:translate-y-0 md:shadow-none md:flex md:justify-center md:items-center w-[90vw] md:w-fit md:h-[65px]`}
-        style={{ transform: menuOpen ? "translateX(0)" : "translateX(-100%)" }}
+        } md:translate-x-0 md:shadow-none md:flex md:justify-center md:items-center w-[90vw] md:w-fit md:h-[65px]`}
+        style={window.innerWidth < 768 ? { transform: menuOpen ? "translateX(0)" : "translateX(-100%)" } : {}}
       >
         <div
           className="flex flex-col bg-blue md:bg-black md:flex-row md:items-center md:justify-center gap-2 sm:gap-3 md:gap-0 overflow-visible border-black w-full md:h-[65px] md:px-0"
