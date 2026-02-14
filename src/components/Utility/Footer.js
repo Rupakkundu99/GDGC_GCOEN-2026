@@ -4,8 +4,15 @@ import { rethink_sans800 } from "@/Fonts/Rethink";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const SocialLink = ({ href, imageAlt, imageSrc }) => {
+const SocialLink = ({ href, imageAlt, imageSrc, whiteImageSrc }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  const getImageSrc = () => {
+    if (isHovered && whiteImageSrc) {
+      return whiteImageSrc;
+    }
+    return imageSrc;
+  };
 
   return (
     <a
@@ -17,7 +24,7 @@ const SocialLink = ({ href, imageAlt, imageSrc }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <img
-        src={imageSrc}
+        src={getImageSrc()}
         alt={imageAlt}
         suppressHydrationWarning
         style={{
@@ -90,16 +97,19 @@ const Footer = () => {
                   href="https://www.instagram.com/gdgcgcoen/"
                   imageAlt="Instagram"
                   imageSrc="/insta.png"
+                  whiteImageSrc="/whiteinsta.png"
                 />
                 <SocialLink
                   href="https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ"
                   imageAlt="WhatsApp"
                   imageSrc="/whatsapp.png"
+                  whiteImageSrc="/whitewhatsapp.png"
                 />
                 <SocialLink
                   href="https://www.linkedin.com/company/gdgoncampus-gcoen/"
                   imageAlt="LinkedIn"
                   imageSrc="/linkedin.png"
+                  whiteImageSrc="/whitelinkedin.png"
                 />
               </div>
               {/* Bottom Row - X, YouTube */}
@@ -108,11 +118,13 @@ const Footer = () => {
                   href="https://x.com/GDGCGcoen"
                   imageAlt="X"
                   imageSrc="/x.png"
+                  whiteImageSrc="/whiteX.png"
                 />
                 <SocialLink
                   href="https://www.youtube.com/c/gdscgcoen3822"
                   imageAlt="YouTube"
                   imageSrc="/youtube.png"
+                  whiteImageSrc="/whiteyoutube.png"
                 />
               </div>
             </div>

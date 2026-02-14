@@ -29,11 +29,37 @@ const LogoImage = () => {
   );
 };
 
+const MainImage = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <img
+      src="/main.png"
+      alt="Main"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      suppressHydrationWarning
+      style={{
+        position: "absolute",
+        left: "50%",
+        transform: `translateX(-50%) scale(${isHovered ? 1.01 : 1})`,
+        top: "538px",
+        width: "1016px",
+        height: "430px",
+        zIndex: "10",
+        opacity: isHovered ? 0.98 : 1,
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+      }}
+    />
+  );
+};
+
 const LandingPage = () => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col container m-auto mt-4 md:-mt-24 items-center justify-center min-h-screen bg-white px-2 sm:px-4 relative">
+    <div className="flex flex-col container m-auto mt-4 md:-mt-24 items-center justify-center min-h-screen bg-white px-2 sm:px-4 relative" style={{ minHeight: "2000px" }}>
       <LogoImage />
       <h1
         style={{
@@ -75,19 +101,7 @@ const LandingPage = () => {
       >
         GOVERNMENT COLLEGE OF ENGINEERING NAGPUR
       </div>
-      <img
-        src="/main.png"
-        alt="Main"
-        style={{
-          position: "absolute",
-          left: "50%",
-          transform: "translateX(-50%)",
-          top: "538px",
-          width: "1016px",
-          height: "430px",
-          zIndex: "10",
-        }}
-      />
+      <MainImage />
       <div
         style={{
           position: "absolute",
@@ -150,14 +164,41 @@ const LandingPage = () => {
         style={{
           position: "absolute",
           width: "1337px",
-          height: "362px",
+          height: "372px",
           left: "50%",
           transform: "translateX(-50%)",
-          top: "850px",
+          top: "830px",
           background: "transparent",
           border: "2px solid #000000",
-          borderRadius: "62px",          zIndex: "1",        }}
-      ></div>
+          borderRadius: "62px",
+          zIndex: "1",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "30px",
+        }}
+      >
+        <div
+          style={{
+            fontFamily: "Poppins",
+            fontStyle: "normal",
+            fontSize: "24px",
+            lineHeight: "40px",
+            textAlign: "center",
+            color: "#000000",
+            width: "100%",
+            marginTop: "140px",
+          }}
+        >
+          <span style={{ fontWeight: 600 }}>At Google Developer Group on Campus, GCOEN,</span>
+          <br />
+          <span style={{ fontWeight: 400 }}>we code, design, and occasionally debug our lives. We're a student community that</span>
+          <br />
+          <span style={{ fontWeight: 400 }}>learns, builds, and breaks things (on purpose!) while exploring Google technologies.</span>
+          <br />
+          <span style={{ fontWeight: 400 }}>Workshops, hackathons, and great vibes because who said tech can't be fun?</span>
+        </div>
+      </div>
     </div>
   );
 };
