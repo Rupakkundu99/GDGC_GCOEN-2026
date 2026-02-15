@@ -1,113 +1,116 @@
 "use client";
-import DefaultBtn from "./DefaultBtn";
-import { rethink_sans800 } from "@/Fonts/Rethink";
-import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 
- const SocialLink = ({ icon, link, label, showLabel }) => (
-  <a
-    href={link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center space-x-4"
-
-  >
-    <img src={icon} alt={`${label} icon`} className="w-6 h-6 sm:w-8 sm:h-8" />
-    {showLabel && (
-      <span className="text-white text-sm md:text-base lg:text-lg">
-        {label}
-      </span>
-    )}
-  </a>
-);
-
 const FooterHackON = () => {
-  const router = useRouter();
-
-  // Navigate to ContactUs on mobile view
-  const handleContactUs = () => {
-    if (window.innerWidth <= 768) {
-      router.push("/ContactUs");
-    }
-  };
-
   return (
-    <footer className="bg-footer_bg">
-      <div className="container m-auto">
-        <div
-          className={`flex flex-col md:flex-row ${rethink_sans800} px-5  py-8 md:py-16`}
-        >
-          {/* Social Links Section for Desktop */}
-          <div className="md:block max-sm:hidden sm:hidden space-y-6 flex-1">
-            {socialLinks.map(({ icon, link, label }, index) => (
-              <SocialLink
-                key={index}
-                icon={icon}
-                link={link}
-                label={label}
-                showLabel={true}
-              />
-            ))}
-          </div>
+    <footer className="w-full bg-black py-12">
+      <div className="container mx-auto flex flex-col items-center gap-8 px-4">
 
-          {/* Call-to-Action Section */}
-          <div className="text-white flex flex-col items-center md:items-end font-bold text-2xl sm:text-3xl md:text-4xl leading-snug gap-y-4 mt-8 md:mt-0">
-            <p>Excited? Why wait! </p>
-            <p>Let's host together</p>
-            <DefaultBtn
-              func={() => {
-                router.push("/ContactUs");
-              }}
-              name="Event with us"
-              HoverColor="hover:bg-gray3 text-black"
-              txtColor="text-black bg-white border-2 border-black"
-            />
-          </div>
+        {/* Register Box from Figma */}
+        {/* Register Box from Figma (Box + Hoverable Button) */}
+<Link
+  href="https://your-register-link.com"
+  target="_blank"
+  className="relative w-full max-w-xl"
+>
+  {/* Outer Box */}
+  <Image
+    src="/register-box.svg"
+    alt="Register Box"
+    width={800}
+    height={300}
+    className="w-full h-auto"
+  />
 
-          {/* Social Links Section for Mobile */}
-          <div className="lg:hidden flex flex-row gap-x-3 justify-center mt-8">
-            {socialLinks.map(({ icon, link, label }, index) => (
-              <SocialLink
-                key={index}
-                icon={icon}
-                link={link}
-                label={label}
-                showLabel={false}
-              />
-            ))}
-          </div>
+  {/* Button Wrapper (handles hover) */}
+  <div
+    className="
+      absolute 
+      bottom-[14%] 
+      left-1/2 
+      -translate-x-1/2 
+      w-[160px] sm:w-[190px] md:w-[220px]
+      cursor-pointer
+      group
+    "
+  >
+    {/* Normal Button */}
+    <Image
+      src="/register-btn.svg"
+      alt="Register Now"
+      width={240}
+      height={80}
+      className="w-full transition-all duration-200 group-hover:hidden"
+    />
+
+    {/* Hover Button */}
+    <Image
+      src="/register-btn-hover.svg"
+      alt="Register Now Hover"
+      width={240}
+      height={80}
+      className="w-full hidden transition-all duration-200 group-hover:block"
+    />
+  </div>
+</Link>
+
+
+
+
+
+        {/* Social Media Links */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          {socialLinks.map((item, index) => (
+            <Link
+              key={index}
+              href={item.link}
+              target="_blank"
+              className=" group flex items-center gap-2 rounded-full 
+border border-white/40 
+px-4 py-2 
+text-white text-xs sm:text-sm 
+transition-all duration-200
+
+hover:bg-yellow-100 
+hover:border-yellow-500 
+hover:text-black"
+            >
+              <Image
+  src={item.icon}
+  alt={item.label}
+  width={16}
+  height={16}
+  className="
+    transition 
+    group-hover:brightness-0
+  "
+/>
+
+              <span className="underline">{item.label}</span>
+            </Link>
+          ))}
         </div>
 
-        {/* Contact Us Button for Mobile */}
-        <button
-          onClick={handleContactUs}
-          className="block sm:hidden bg-footer_bg w-full py-1 pb-2 text-white font-bold text-center"
-        >
-          Contact Us
-        </button>
 
-        {/* Footer Logo */}
-        <div className="flex justify-center py-6 md:py-10 px-10">
-          <img
-            src="/gdgc-footer.svg"
-            alt="GDGC Footer Logo"
-            className="sm:w-32 sm:px-1 lg:w-full md:w-full"
-          />
-        </div>
+        {/* GDG Logo Section - Shifted Left but Large */}
+        <div className="w-full flex items-center mt-6">
+  {/* Left Line */}
+  <div className="flex-[0.15] h-[1.5px] bg-white/80"></div>
 
-        {/* tc/pp */}
-        <div className="flex justify-center items-center gap-6 pb-6">
-  <Link href="/Legals/terms-and-conditions" className="text-white text-sm hover:underline">
-    Terms and Conditions
-  </Link>
-  <div className="h-4 w-px bg-white"></div> {/* Vertical line separator */}
-  <Link href="/Legals/privacy-policy" className="text-white text-sm hover:underline">
-    Privacy Policy
-  </Link>
-  <div className="h-4 w-px bg-white"></div> {/* Vertical line separator */}
-  <Link href="/Legals/Refund-policy" className="text-white text-sm hover:underline">
-    Refund Policy
-  </Link>
+  {/* Logo */}
+  <div className="px-4 md:px-6 shrink-0">
+    <Image
+      src="/gdc-on-campus-logo.svg"
+      alt="Google Developer Group On Campus GCOEN"
+      width={700}
+      height={120}
+      className="w-[220px] sm:w-[280px] md:w-[360px] lg:w-[420px] h-auto object-contain"
+    />
+  </div>
+
+  {/* Right Line */}
+  <div className="flex-1 h-[1.5px] bg-white/80"></div>
 </div>
       </div>
     </footer>
@@ -117,29 +120,10 @@ const FooterHackON = () => {
 export default FooterHackON;
 
 const socialLinks = [
-  {
-    icon: "/instagram.svg",
-    link: "https://www.instagram.com/gdgcgcoen/",
-    label: "Follow us on Instagram",
-  },
-  {
-    icon: "/whatsapp.svg",
-    link: "https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ",
-    label: "Join our WhatsApp Group",
-  },
-  {
-    icon: "/linkedin.svg",
-    link: "https://www.linkedin.com/company/gdgoncampus-gcoen/",
-    label: "Connect on LinkedIn",
-  },
-  {
-    icon: "/x.svg",
-    link: "https://x.com/GDGCGcoen",
-    label: "Follow us on X (Twitter)",
-  },
-  {
-    icon: "/youtube.svg",
-    link: "http://www.youtube.com/@gdscgcoen3822",
-    label: "Subscribe to our YouTube Channel",
-  },
+  { icon: "/instagram.svg", link: "https://www.instagram.com/gdgcgcoen/", label: "Instagram" },
+  { icon: "/whatsapp.svg", link: "https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ", label: "Whatsapp" },
+  { icon: "/linkedin.svg", link: "https://www.linkedin.com/company/gdgoncampus-gcoen/", label: "LinkedIn" },
+  { icon: "/x.svg", link: "https://x.com/GDGCGcoen", label: "X.com" },
+  { icon: "/youtube.svg", link: "http://www.youtube.com/@gdscgcoen3822", label: "YouTube" },
 ];
+

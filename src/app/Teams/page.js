@@ -1,126 +1,224 @@
 "use client";
 
-import {
-  rethink_sans400,
-  rethink_sans600,
-  rethink_sans800,
-} from "@/Fonts/Rethink";
-import { teamData } from "@/sampledata/Teams";
+import { Instagram, Linkedin, Youtube } from "lucide-react";
 import React from "react";
+import { FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 
-const TeamSection = () => {
+export default function TeamsPage() {
+  const teams = [
+    { name: "GDG Lead", image: "/gdglead.png" },
+    { name: "Development Team", image: "/dev.png" },
+    { name: "Operations Team", image: "/op1.png" },
+    { name: "Design Team", image: "/designfinal.png" },
+    { name: "PR & Marketing Team", image: "/mpr.png" },
+    { name: "Media Productions Team", image: "/media.png" },
+    { name: "Social Media Team", image: "/smedia.png" },
+  ];
+
   return (
-    <div className="container flex-col flex gap-10 mx-auto  p-5  mt-20 md:mt-0">
-      <div className="" data-aos="fade-up">
-        <h2
-          className={`text-[32px] font-bold mb-8 ${rethink_sans800.className} `}
-        >
-          Campus Organiser
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-4   gap-y-16 gap-x-10 mx-auto ">
-          <div className="flex flex-col min-w-[18rem] border-[3px] border-black ] rounded-[15px]  ">
-            <div>
-              <img
-                className=" rounded-t-[12px] w-full  h-[22rem]  sm:h-[20rem]"
-                src={teamData.campusOrganizer.pfp}
-              />
-            </div>
-            <div>
-              <p
-                className={`${rethink_sans600.className} text-black  text-lg font-medium pl-3 pt-2`}
-              >
-                {teamData.campusOrganizer.name}
-              </p>
-            </div>
-            <div className="p-2">
+    <div className="relative min-h-screen bg-white px-6 py-6 mt-3 overflow-hidden font-sans">
+
+
+      {/* ================= BACKGROUND IMAGES ================= */}
+
+      {/* LEFT TOP SQUARE FRAME */}
+      <img
+        src="/first.png"
+        className="absolute z-0 pointer-events-none w-[170px] top-[70px] left-[-20px] md:w-[519px] md:h-[493px] md:top-[420px] md:left-[32px]"
+      />
+
+      {/* LEFT STAR SHAPE */}
+      <img
+        src="/third.png"
+        className="absolute z-0 pointer-events-none w-[140px] top-[600px] left-[-20px] md:w-[372px] md:h-[372px] md:top-[1150px] md:left-[-77px]"
+      />
+
+      {/* RIGHT LARGE RING */}
+      <img
+        src="/second.png"
+        className="absolute z-0 pointer-events-none w-[200px] top-[260px] right-[-80px] opacity-90 md:w-[600px] md:top-[780px] md:right-[-180px]"
+      />
+
+      {/* BOTTOM RIGHT ARC */}
+      <img
+        src="/fourth.png"
+        className="absolute z-0 pointer-events-none w-[80px] bottom-[20px] right-[-10px] opacity-90 md:w-[180px] md:bottom-[40px] md:right-[40px]"
+      />
+
+      {/* ================= CONTENT ================= */}
+
+      <div className="relative z-10 max-w-6xl mx-auto">
+
+        {/* Heading */}
+        <h1 className="text-3xl md:text-5xl font-semibold mb-14">
+          Teams
+        </h1>
+
+        {/* GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+          {teams.map((team, index) => {
+
+            if (index === teams.length - 1) {
+              return (
+                <React.Fragment key={index}>
+
+                  {/* SOCIAL MEDIA TEAM CARD */}
+                  <div
+                    className="border-2 border-black rounded-2xl overflow-hidden 
+                    bg-white shadow-sm cursor-pointer
+                    transition-all duration-300 ease-in-out
+                    hover:bg-[rgba(255,249,221,1)] hover:-translate-y-1 hover:shadow-md"
+                  >
+                    <div className="w-full h-[320px] overflow-hidden">
+                      <img
+                        src={team.image}
+                        alt={team.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+
+                    <div className="text-center py-3 font-medium border-t-2 border-black">
+                      {team.name}
+                    </div>
+                  </div>
+
+                  {/* SIDE PANEL */}
+                  <div className="flex flex-col gap-6">
+
+                    {/* SOCIAL LINKS BOX */}
+<div className="bg-[#FFF9DD] border border-black rounded-[40px] p-8 w-64 shadow-sm">
+  <div className="flex flex-col items-center gap-4">
+    {[
+      { name: "Instagram", icon: <Instagram size={18} />, href: "https://www.instagram.com/gdgcgcoen/" },
+      { name: "Whatsapp", icon: <FaWhatsapp size={18} />, href: "https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ" },
+      { name: "LinkedIn", icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/gdgoncampus-gcoen/" },
+      { name: "X.com", icon: <FaXTwitter size={18} />, href: "https://x.com/GDGCGcoen" },
+      { name: "Youtube", icon: <Youtube size={18} />, href: "https://www.youtube.com/@gdscgcoen3822" },
+    ].map((link) => (
+      <a
+        key={link.name}
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        /* w-48 ensures all pills are the exact same width for a uniform look */
+        className="flex items-center gap-3 border border-black rounded-full px-5 py-2 w-44 bg-transparent text-black transition-all duration-200 
+                   hover:border-[#F9AB00] hover:text-[#F9AB00] group"
+      >
+        <span className="flex-shrink-0 flex items-center justify-center w-5 group-hover:text-[#F9AB00]">
+          {link.icon}
+        </span>
+        <span className="text-sm font-medium underline underline-offset-4 decoration-1">
+          {link.name}
+        </span>
+      </a>
+    ))}
+  </div>
+</div>
+                    {/* <div className="bg-[rgba(255,249,221,1)]
+                                    border border-gray-500
+                                    rounded-[40px]
+                                    p-6 py-8
+                                    w-64
+                                    shadow-sm">
+
+                      <div className="flex flex-col gap-4">
+
+                        <a
+                          href="https://www.instagram.com/gdgcgcoen/"
+                          target="_blank"
+                          className="flex items-center gap-3 border border-black rounded-full px-4 py-2 bg-white hover:bg-[rgba(255,249,221,1)] transition"
+                        >
+                          <Instagram size={18} />
+                          <span className="text-sm">Instagram</span>
+                        </a>
+
+                        <a
+                          href="https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ"
+                          target="_blank"
+                          className="flex items-center gap-3 border border-black rounded-full px-4 py-2 bg-white hover:bg-[rgba(255,249,221,1)] transition"
+                        >
+                          <FaWhatsapp size={18} />
+                          <span className="text-sm">Whatsapp</span>
+                        </a>
+
+                        <a
+                          href="https://www.linkedin.com/company/gdgoncampus-gcoen/"
+                          target="_blank"
+                          className="flex items-center gap-3 border border-black rounded-full px-4 py-2 bg-white hover:bg-[rgba(255,249,221,1)] transition"
+                        >
+                          <Linkedin size={18} />
+                          <span className="text-sm">LinkedIn</span>
+                        </a>
+
+                        <a
+                          href="https://x.com/GDGCGcoen"
+                          target="_blank"
+                          className="flex items-center gap-3 border border-black rounded-full px-4 py-2 bg-white hover:bg-[rgba(255,249,221,1)] transition"
+                        >
+                          <FaXTwitter size={18} />
+                          <span className="text-sm">X.com</span>
+                        </a>
+
+                        <a
+                          href="https://www.youtube.com/@gdscgcoen3822"
+                          target="_blank"
+                          className="flex items-center gap-3 border border-black rounded-full px-4 py-2 bg-white hover:bg-[rgba(255,249,221,1)] transition"
+                        >
+                          <Youtube size={18} />
+                          <span className="text-sm">Youtube</span>
+                        </a>
+
+                      </div>
+                    </div> */}
+{/* GDG INFO BOX */}
+    <div
+      className="relative z-10 bg-white border border-black 
+      rounded-[18px] px-5 py-2 text-sm shadow-sm w-72
+      cursor-pointer transition-all duration-300 ease-in-out
+      hover:bg-[rgba(255,249,221,1)] hover:-translate-y-1 hover:shadow-md"
+    >
+      <p className="font-semibold">
+        Google Developer Group
+      </p>
+      <p className="mt-2">
+        On Campus • GCOEN
+      </p>
+    </div>
+
+
+                  </div>
+
+                </React.Fragment>
+              );
+            }
+
+            // NORMAL TEAM CARDS
+            return (
               <div
-                className="px-2 py-1 rounded-[20px] inline-block max-w-full border-[2px] border-black"
-                style={{
-                  background:
-                    "linear-gradient(to right, #ECB80F, #CBB51C, #A8B12B, #7EAC3E, #709750, #9F8245, #C66F47, #F9574C, #BB6587, #8B74B8, #697CE0, #607FE9)",
-                }}
+                key={index}
+                className="border-2 border-black rounded-2xl overflow-hidden 
+                bg-white shadow-sm cursor-pointer
+                transition-all duration-300 ease-in-out
+                hover:bg-[rgba(255,249,221,1)] hover:-translate-y-1 hover:shadow-md"
               >
-                <p
-                  className={`${rethink_sans600.className} text-black  text-base font-medium`}
-                >
-                  {teamData.campusOrganizer.post}
-                </p>
+                <div className="w-full h-[320px] overflow-hidden">
+                  <img
+                    src={team.image}
+                    alt={team.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                <div className="text-center py-3 font-medium border-t-2 border-black">
+                  {team.name}
+                </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
+
         </div>
       </div>
-      <div className="">
-        <TeamsCard TeamName="Design team" teamData={teamData?.designTeam} />
-        <TeamsCard TeamName="Development Team" teamData={teamData?.devTeam} />
-        <TeamsCard
-          TeamName="Marketing & PR Team"
-          teamData={teamData?.MarketingTeam}
-        />
-        <TeamsCard
-          TeamName="Media Production Team"
-          teamData={teamData?.MediaTeam}
-        />
-        <TeamsCard
-          TeamName="Operations Team"
-          teamData={teamData?.OperationTeam}
-        />
-        <TeamsCard
-          TeamName="Social Media Team"
-          teamData={teamData?.SocialTeam}
-        />
-      </div>
     </div>
   );
-};
-
-export default TeamSection;
-
-const TeamsCard = ({ TeamName, teamData }) => {
-  return (
-    <div className="" data-aos="fade-up flex   ">
-      <h2
-        className={`text-[32px] font-bold mb-8 ${rethink_sans800.className} `}
-      >
-        {TeamName}
-      </h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-5  mx-auto mb-16">
-        {teamData?.map((member, index) => (
-          <div
-            key={index}
-            className="flex flex-col border-[3px] border-black min-w-[10rem] rounded-[15px]  "
-          >
-            <div>
-              <img className=" rounded-t-[12px] h-[175px] sm:h-[280px] w-full " src={member.pfp} />
-            </div>
-            <div>
-              <p
-                className={`${rethink_sans600.className} text-black  text-sm sm:text-lg font-medium pl-3 pt-2`}
-              >
-                {member.name}
-              </p>
-            </div>
-            <div className="p-2">
-              <div
-                className="px-2 py-1 rounded-[20px] inline-block max-w-full border-[2px] border-black"
-                style={{
-                  backgroundColor: member.post
-                    ?.toLowerCase()
-                    .includes("associate")
-                    ? "#2280FE"
-                    : "#9749FF",
-                }}
-              >
-                <p
-                  className={`${rethink_sans600.className} text-black  text-[11px] sm:text-[15px] font-medium`}
-                >
-                  {member.post}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+}

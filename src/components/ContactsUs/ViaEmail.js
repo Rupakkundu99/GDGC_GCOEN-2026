@@ -1,11 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import DefaultBtn from "../Utility/DefaultBtn";
-import { rethink_sans400, rethink_sans800 } from "@/Fonts/Rethink";
+import { rethink_sans400 } from "@/Fonts/Rethink";
 import { thankContact } from "@/sampledata/HTMLTemplate";
 import ThankYouPage from "./ThankYouContact";
 import { AddDataToCollection } from "@/Services/Appwrite";
 import { ContactCollection } from "@/config/appwrite";
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    font-family: "Segoe UI", sans-serif !important;
+  }
+`;
 
 const ViaEmail = () => {
   const [errorMsg, seterrorMsg] = useState("");
@@ -94,13 +101,15 @@ const ViaEmail = () => {
   };
 
   return (
-    <div className="w-full md:border-r-2 border-black md:pr-10">
+    <div className="w-full md:pr-10">
+      <GlobalStyle />
       <form
         onSubmit={handleSubmit}
         className="md:mt-5 p-5 flex-col gap-5 flex border-2 rounded-3xl border-black"
       >
         <h4
-          className={`text-2xl md:text-[40px] mb-1 ${rethink_sans800.className}`}
+          className={`text-2xl md:text-[40px] mb-1 font-normal ${rethink_sans400.className}`}
+          style={{ color: '#FCCE48' }}
         >
           via Email
         </h4>
@@ -117,7 +126,7 @@ const ViaEmail = () => {
           type="text"
           value={formData.fullName}
           onChange={handleChange}
-          className="w-full outline-none border font-normal border-gray4 rounded-lg py-3 px-2"
+          className="w-full outline-none border-2 font-normal border-black rounded-lg py-3 px-2"
           placeholder="Full Name"
         />
         <input
@@ -125,7 +134,7 @@ const ViaEmail = () => {
           type="text"
           value={formData.profession}
           onChange={handleChange}
-          className="w-full outline-none border font-normal border-gray4 rounded-lg py-3 px-2"
+          className="w-full outline-none border-2 font-normal border-black rounded-lg py-3 px-2"
           placeholder="Profession"
         />
         <input
@@ -133,8 +142,8 @@ const ViaEmail = () => {
           type="text"
           value={formData.company}
           onChange={handleChange}
-          className="w-full outline-none border font-normal border-gray4 rounded-lg py-3 px-2"
-          placeholder="Company / Organization (optional)"
+          className="w-full outline-none border-2 font-normal border-black rounded-lg py-3 px-2"
+          placeholder="Company / Organisation"
         />
         <div className="flex md:flex-row flex-col gap-5">
           <input
@@ -142,15 +151,15 @@ const ViaEmail = () => {
             type="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full outline-none border font-normal border-gray4 rounded-lg py-3 px-2"
+            className="w-full outline-none border-2 font-normal border-black rounded-lg py-3 px-2"
             placeholder="Email Address"
           />
           <input
             name="phone"
-            type="number"
+            type="text"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full outline-none border font-normal border-gray4 rounded-lg py-3 px-2"
+            className="w-full outline-none border-2 font-normal border-black rounded-lg py-3 px-2"
             placeholder="Phone Number"
           />
         </div>
@@ -159,29 +168,29 @@ const ViaEmail = () => {
           type="text"
           value={formData.message}
           onChange={handleChange}
-          className="w-full outline-none border font-normal border-gray4 rounded-lg py-3 px-2"
-          placeholder="Message"
+          className="w-full outline-none border-2 font-normal border-black rounded-lg py-3 px-2"
+          placeholder="Description"
         />
-        <div className="flex gap-5">
+        <div className="flex gap-5 items-center">
           <input
             name="agree"
             type="checkbox"
-            className="w-8"
+            className="w-5 h-5 rounded border-black text-blue-600 focus:ring-blue-500 accent-blue-600"
             checked={formData.agree}
             onChange={handleChange}
           />
-          <p className={`${rethink_sans400.className} md:text-base  text-xs`}>
+          <p className={`${rethink_sans400.className} md:text-base text-xs`}>
             By agreeing to this, you authorize our team to send you important
             messages and notifications via email.
           </p>
         </div>
         <div className="flex justify-end">
           <DefaultBtn
-            name="Reach out"
+            name="Reach Out"
             loading={loading}
-            cuStyle="w-full md:w-fit"
+            cuStyle="w-full md:min-w-[200px] md:w-fit md:px-8"
             disabled={!formData.agree ? "disabled:bg-blue3" : ""}
-            HoverColor="hover:bg-blue focus:ring-blue "
+            HoverColor="hover:bg-yellow-100 hover:shadow-[4px_4px_0_0_#f59e0b,5px_5px_0_0_black] focus:ring-amber-400"
             txtColor="text-black border-2 border-black"
           />
         </div>
