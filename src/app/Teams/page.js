@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import { Instagram, Linkedin, Youtube } from "lucide-react";
+import React from "react";
 import { FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 
 export default function TeamsPage() {
@@ -16,7 +16,7 @@ export default function TeamsPage() {
   ];
 
   return (
-    <div className="relative min-h-screen bg-white px-6 py-16 mt-10 overflow-hidden font-sans">
+    <div className="relative min-h-screen bg-white px-6 py-6 mt-3 overflow-hidden font-sans">
 
 
       {/* ================= BACKGROUND IMAGES ================= */}
@@ -24,49 +24,25 @@ export default function TeamsPage() {
       {/* LEFT TOP SQUARE FRAME */}
       <img
         src="/first.png"
-        className="absolute z-0 pointer-events-none"
-        style={{
-          width: "519px",
-          height: "493px",
-          top: "420px",
-          left: "32px",
-        }}
+        className="absolute z-0 pointer-events-none w-[170px] top-[70px] left-[-20px] md:w-[519px] md:h-[493px] md:top-[420px] md:left-[32px]"
       />
 
       {/* LEFT STAR SHAPE */}
       <img
         src="/third.png"
-        className="absolute z-0 pointer-events-none"
-        style={{
-          width: "372px",
-          height: "372px",
-          top: "1150px",
-          left: "-77px",
-        }}
+        className="absolute z-0 pointer-events-none w-[140px] top-[600px] left-[-20px] md:w-[372px] md:h-[372px] md:top-[1150px] md:left-[-77px]"
       />
 
       {/* RIGHT LARGE RING */}
       <img
         src="/second.png"
-        className="absolute z-0 pointer-events-none"
-        style={{
-          width: "600px",
-          top: "780px",
-          right: "-180px",
-          opacity: 0.9,
-        }}
+        className="absolute z-0 pointer-events-none w-[200px] top-[260px] right-[-80px] opacity-90 md:w-[600px] md:top-[780px] md:right-[-180px]"
       />
 
       {/* BOTTOM RIGHT ARC */}
       <img
         src="/fourth.png"
-        className="absolute z-0 pointer-events-none"
-        style={{
-          width: "180px",
-          bottom: "40px",
-          right: "40px",
-          opacity: 0.9,
-        }}
+        className="absolute z-0 pointer-events-none w-[80px] bottom-[20px] right-[-10px] opacity-90 md:w-[180px] md:bottom-[40px] md:right-[40px]"
       />
 
       {/* ================= CONTENT ================= */}
@@ -74,7 +50,7 @@ export default function TeamsPage() {
       <div className="relative z-10 max-w-6xl mx-auto">
 
         {/* Heading */}
-        <h1 className="text-3xl md:text-4xl font-semibold mb-14">
+        <h1 className="text-3xl md:text-5xl font-semibold mb-14">
           Teams
         </h1>
 
@@ -89,7 +65,7 @@ export default function TeamsPage() {
 
                   {/* SOCIAL MEDIA TEAM CARD */}
                   <div
-                    className="border border-gray-400 rounded-2xl overflow-hidden 
+                    className="border-2 border-black rounded-2xl overflow-hidden 
                     bg-white shadow-sm cursor-pointer
                     transition-all duration-300 ease-in-out
                     hover:bg-[rgba(255,249,221,1)] hover:-translate-y-1 hover:shadow-md"
@@ -102,7 +78,7 @@ export default function TeamsPage() {
                       />
                     </div>
 
-                    <div className="text-center py-3 font-medium border-t border-gray-300">
+                    <div className="text-center py-3 font-medium border-t-2 border-black">
                       {team.name}
                     </div>
                   </div>
@@ -111,10 +87,38 @@ export default function TeamsPage() {
                   <div className="flex flex-col gap-6">
 
                     {/* SOCIAL LINKS BOX */}
-                    <div className="bg-[rgba(255,249,221,1)]
+<div className="bg-[#FFF9DD] border border-black rounded-[40px] p-8 w-64 shadow-sm">
+  <div className="flex flex-col items-center gap-4">
+    {[
+      { name: "Instagram", icon: <Instagram size={18} />, href: "https://www.instagram.com/gdgcgcoen/" },
+      { name: "Whatsapp", icon: <FaWhatsapp size={18} />, href: "https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ" },
+      { name: "LinkedIn", icon: <Linkedin size={18} />, href: "https://www.linkedin.com/company/gdgoncampus-gcoen/" },
+      { name: "X.com", icon: <FaXTwitter size={18} />, href: "https://x.com/GDGCGcoen" },
+      { name: "Youtube", icon: <Youtube size={18} />, href: "https://www.youtube.com/@gdscgcoen3822" },
+    ].map((link) => (
+      <a
+        key={link.name}
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        /* w-48 ensures all pills are the exact same width for a uniform look */
+        className="flex items-center gap-3 border border-black rounded-full px-5 py-2 w-44 bg-transparent text-black transition-all duration-200 
+                   hover:border-[#F9AB00] hover:text-[#F9AB00] group"
+      >
+        <span className="flex-shrink-0 flex items-center justify-center w-5 group-hover:text-[#F9AB00]">
+          {link.icon}
+        </span>
+        <span className="text-sm font-medium underline underline-offset-4 decoration-1">
+          {link.name}
+        </span>
+      </a>
+    ))}
+  </div>
+</div>
+                    {/* <div className="bg-[rgba(255,249,221,1)]
                                     border border-gray-500
                                     rounded-[40px]
-                                    p-6
+                                    p-6 py-8
                                     w-64
                                     shadow-sm">
 
@@ -166,11 +170,11 @@ export default function TeamsPage() {
                         </a>
 
                       </div>
-                    </div>
+                    </div> */}
 {/* GDG INFO BOX */}
     <div
       className="relative z-10 bg-white border border-black 
-      rounded-[18px] px-5 py-5 text-sm shadow-sm w-72
+      rounded-[18px] px-5 py-2 text-sm shadow-sm w-72
       cursor-pointer transition-all duration-300 ease-in-out
       hover:bg-[rgba(255,249,221,1)] hover:-translate-y-1 hover:shadow-md"
     >
@@ -193,7 +197,7 @@ export default function TeamsPage() {
             return (
               <div
                 key={index}
-                className="border border-gray-400 rounded-2xl overflow-hidden 
+                className="border-2 border-black rounded-2xl overflow-hidden 
                 bg-white shadow-sm cursor-pointer
                 transition-all duration-300 ease-in-out
                 hover:bg-[rgba(255,249,221,1)] hover:-translate-y-1 hover:shadow-md"
@@ -206,7 +210,7 @@ export default function TeamsPage() {
                   />
                 </div>
 
-                <div className="text-center py-3 font-medium border-t border-gray-300">
+                <div className="text-center py-3 font-medium border-t-2 border-black">
                   {team.name}
                 </div>
               </div>
