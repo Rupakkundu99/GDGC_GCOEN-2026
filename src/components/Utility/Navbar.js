@@ -98,8 +98,8 @@ const Navbar = () => {
 
       {/* Navbar Container */}
       <div
-        className={`z-[9999px] fixed left-0 top-12 md:relative md:top-auto md:left-auto md:mx-auto md:mt-[44px] bg-blue md:bg-transparent shadow-lg transform transition-transform duration-300 ${
-          menuOpen ? "translate-x-0" : "-translate-x-full"
+        className={`z-[9999px] fixed right-0 top-12 md:relative md:top-auto md:left-auto md:mx-auto md:mt-[44px] bg-blue md:bg-transparent shadow-lg transform transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
         } md:!translate-x-0 md:shadow-none md:flex md:justify-center md:items-center w-[90vw] md:w-fit md:h-[65px]`}
       >
         <div
