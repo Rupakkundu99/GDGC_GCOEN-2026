@@ -1,149 +1,222 @@
 "use client";
 import DefaultBtn from "./DefaultBtn";
 import { rethink_sans800 } from "@/Fonts/Rethink";
-import { usePathname, useRouter } from "next/navigation";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
+const SocialLink = ({ href, imageAlt, imageSrc, whiteImageSrc }) => {
+  const [isHovered, setIsHovered] = useState(false);
 
- const SocialLink = ({ icon, link, label, showLabel }) => (
-  <a
-    href={link}
-    target="_blank"
-    className="flex items-center space-x-4"
+  const getImageSrc = () => {
+    if (isHovered && whiteImageSrc) {
+      return whiteImageSrc;
+    }
+    return imageSrc;
+  };
 
-  >
-    <img src={icon} alt={`${label} icon`} className="w-6 h-6 sm:w-8 sm:h-8" />
-    {showLabel && (
-      <span className="text-white text-sm md:text-base lg:text-lg">
-        {label}
-      </span>
-    )}
-  </a>
-);
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ textDecoration: "none" }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <img
+        src={getImageSrc()}
+        alt={imageAlt}
+        suppressHydrationWarning
+        style={{
+          width: "140px",
+          height: "44px",
+          opacity: isHovered ? 0.95 : 1,
+          transform: isHovered ? "scale(1.02)" : "scale(1)",
+          transition: "all 0.3s ease",
+          cursor: "pointer",
+        }}
+      />
+    </a>
+  );
+};
+
+const LogoImage = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <img
+      src={isHovered ? "/goldengdg.png" : "/whitegdgc.png"}
+      alt="GDGC Logo"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      suppressHydrationWarning
+      style={{
+        position: "absolute",
+        right: "20px",
+        width: "475px",
+        height: "100px",
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+      }}
+    />
+  );
+};
 
 const Footer = () => {
   const router = useRouter();
 
-  // Navigate to ContactUs on mobile view
-  const handleContactUs = () => {
-    if (window.innerWidth <= 768) {
-      router.push("/ContactUs");
-    }
-  };
-
   return (
-    <footer className="bg-footer_bg">
-      <div className="container m-auto">
-        <div
-          className={`flex flex-col md:flex-row ${rethink_sans800} px-5  py-8 md:py-16`}
-        >
-          {/* Social Links Section for Desktop */}
-          <div className="md:block max-sm:hidden sm:hidden space-y-6 flex-1">
-            {socialLinks.map(({ icon, link, label }, index) => (
-              <SocialLink
-                key={index}
-                icon={icon}
-                link={link}
-                label={label}
-                showLabel={true}
-              />
-            ))}
-          </div>
-
-          {/* Call-to-Action Section */}
-          <div className="text-white flex flex-col items-center md:items-end font-bold text-2xl sm:text-3xl md:text-4xl leading-snug gap-y-4 mt-8 md:mt-0">
-            <p>Excited? Why wait! </p>
-            <p>Let's host together</p>
-            <DefaultBtn
-              func={() => {
-                router.push("/ContactUs");
+    <>
+      {/* Desktop Footer */}
+      <footer className="hidden md:block bg-white" style={{ paddingTop: "600px" }}>
+        <div className="container m-auto">
+          {/* Frame 124 - Bottom Box */}
+          <div className="flex justify-center py-8 px-5">
+            <div
+              className="border-2 border-black rounded-[62px] bg-white relative flex justify-center items-center"
+              style={{
+                width: "1250px",
+                height: "180px",
+                maxWidth: "95vw",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
-              name="Event with us"
-              HoverColor="hover:bg-gray3 text-black"
-              txtColor="text-black bg-white border-2 border-black"
-            />
-          </div>
+            >
+              {/* Left Section - Social Icons */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: "20px",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "8px",
+                }}
+              >
+                {/* Top Row - Instagram, WhatsApp, LinkedIn */}
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <SocialLink
+                    href="https://www.instagram.com/gdgcgcoen/"
+                    imageAlt="Instagram"
+                    imageSrc="/insta.png"
+                    whiteImageSrc="/whiteinsta.png"
+                  />
+                  <SocialLink
+                    href="https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ"
+                    imageAlt="WhatsApp"
+                    imageSrc="/whatsapp.png"
+                    whiteImageSrc="/whitewhatsapp.png"
+                  />
+                  <SocialLink
+                    href="https://www.linkedin.com/company/gdgoncampus-gcoen/"
+                    imageAlt="LinkedIn"
+                    imageSrc="/linkedin.png"
+                    whiteImageSrc="/whitelinkedin.png"
+                  />
+                </div>
+                {/* Bottom Row - X, YouTube */}
+                <div style={{ display: "flex", gap: "8px" }}>
+                  <SocialLink
+                    href="https://x.com/GDGCGcoen"
+                    imageAlt="X"
+                    imageSrc="/x.png"
+                    whiteImageSrc="/whiteX.png"
+                  />
+                  <SocialLink
+                    href="https://www.youtube.com/c/gdscgcoen3822"
+                    imageAlt="YouTube"
+                    imageSrc="/youtube.png"
+                    whiteImageSrc="/whiteyoutube.png"
+                  />
+                </div>
+              </div>
 
-          {/* Social Links Section for Mobile */}
-          <div 
-              rel="noopener noreferrer"
-              data-aos="fade-right"
-          className="lg:hidden flex flex-row gap-x-3 justify-center mt-8">
-            {socialLinks.map(({ icon, link, label }, index) => (
-              <SocialLink
-                key={index}
-                icon={icon}
-                link={link}
-                label={label}
-                showLabel={false}
+              <img
+                src="/gdgfooter.png"
+                alt="Vector"
+                style={{
+                  width: "75px",
+                  height: "40px",
+                }}
               />
-            ))}
+              <LogoImage />
+            </div>
           </div>
         </div>
+      </footer>
 
-        {/* Contact Us Button for Mobile */}
-        <button
-          onClick={handleContactUs}
-          className="block sm:hidden bg-footer_bg w-full py-1 pb-2 text-white font-bold text-center"
-        >
-          Contact Us
-        </button>
+      {/* Mobile Footer */}
+      <footer className="block md:hidden bg-white px-4 py-8">
+        <div style={{
+          border: "2px solid #000000",
+          borderRadius: "20px",
+          padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "20px",
+        }}>
+          {/* Social Icons */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center" }}>
+            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
+              <SocialLink
+                href="https://www.instagram.com/gdgcgcoen/"
+                imageAlt="Instagram"
+                imageSrc="/insta.png"
+                whiteImageSrc="/whiteinsta.png"
+              />
+              <SocialLink
+                href="https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ"
+                imageAlt="WhatsApp"
+                imageSrc="/whatsapp.png"
+                whiteImageSrc="/whitewhatsapp.png"
+              />
+              <SocialLink
+                href="https://www.linkedin.com/company/gdgoncampus-gcoen/"
+                imageAlt="LinkedIn"
+                imageSrc="/linkedin.png"
+                whiteImageSrc="/whitelinkedin.png"
+              />
+            </div>
+            <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
+              <SocialLink
+                href="https://x.com/GDGCGcoen"
+                imageAlt="X"
+                imageSrc="/x.png"
+                whiteImageSrc="/whiteX.png"
+              />
+              <SocialLink
+                href="https://www.youtube.com/c/gdscgcoen3822"
+                imageAlt="YouTube"
+                imageSrc="/youtube.png"
+                whiteImageSrc="/whiteyoutube.png"
+              />
+            </div>
+          </div>
 
-        {/* Footer Logo */}
-        <div className="flex justify-center py-6 md:py-10 px-10">
+          {/* Center Logo */}
           <img
-            src="/gdgc-footer.svg"
-            alt="GDGC Footer Logo"
-            className="sm:w-32 sm:px-1 lg:w-full md:w-full"
+            src="/gdgfooter.png"
+            alt="Vector"
+            style={{
+              width: "60px",
+              height: "auto",
+            }}
+          />
+
+          {/* Logo - Adjusted for Mobile */}
+          <img
+            src="/whitegdgc.png"
+            alt="GDGC Logo"
+            style={{
+              width: "280px",
+              height: "auto",
+            }}
           />
         </div>
-        {/* tc/pp */}
-        <div className="flex justify-center items-center gap-6 pb-6">
-  <Link href="/Legals/terms-and-conditions" className="text-white text-sm hover:underline">
-    Terms and Conditions
-  </Link>
-  <div className="h-4 w-px bg-white"></div> {/* Vertical line separator */}
-  <Link href="/Legals/privacy-policy" className="text-white text-sm hover:underline">
-    Privacy Policy
-  </Link>
-  <div className="h-4 w-px bg-white"></div> {/* Vertical line separator */}
-  <Link href="/Legals/Refund-policy" className="text-white text-sm hover:underline">
-    Refund Policy
-  </Link>
-</div>
-
-
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
 export default Footer;
-
-const socialLinks = [
-  {
-    icon: "/instagram.svg",
-    link: "https://www.instagram.com/gdgcgcoen/",
-    label: "Follow us on Instagram",
-  },
-  {
-    icon: "/whatsapp.svg",
-    link: "https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ",
-    label: "Join our WhatsApp Group",
-  },
-  {
-    icon: "/linkedin.svg",
-    link: "https://www.linkedin.com/company/gdgoncampus-gcoen/",
-    label: "Connect on LinkedIn",
-  },
-  {
-    icon: "/x.svg",
-    link: "https://x.com/GDGCGcoen",
-    label: "Follow us on X (Twitter)",
-  },
-  {
-    icon: "/youtube.svg",
-    link: "http://www.youtube.com/@gdscgcoen3822",
-    label: "Subscribe to our YouTube Channel",
-  },
-];

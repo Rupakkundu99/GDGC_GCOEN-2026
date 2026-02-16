@@ -4,16 +4,7 @@ import { rethink_sans800 } from "@/Fonts/Rethink";
 
 const OurEvent = () => {
   return (
-    <div className={rethink_sans800.className} data-aos="fade-up">
-      <Image
-        src="/OurEvents1.svg"
-        width={1899.975}
-        height={111.69}
-        alt="Element 1"
-        data-aos="fade-right"
-        className="w-full"
-      />
-
+    <div className={`${rethink_sans800.className} aos-init`} data-aos="fade-up">
       <div className=" container m-auto flex flex-col  px-5 ">
         {/* <div className=" mx-5 md:mx-10 flex flex-col p-{64px} "> */}
         <p className="sm:text-xxl  text-l font-extrabold">Our Events</p>
@@ -27,7 +18,7 @@ const OurEvent = () => {
               blurDataURL="/OurEventLeft.svg" // Small or blurred version of the image
               alt="EventPhoto1"
               data-aos="fade-up"
-              className="grid w-full   sm:col-start-1 sm:row-start-1"
+              className="grid w-full sm:col-start-1 sm:row-start-1 aos-init"
             ></Image>
 
             <Image
@@ -41,7 +32,7 @@ const OurEvent = () => {
             ></Image>
           </div>
 
-          <div className="w-full md:w-[72%]" >
+          <div className="w-full md:w-[72%]">
             <Image
               src="/EventPhoto2.svg"
               width={650}
@@ -50,6 +41,7 @@ const OurEvent = () => {
               data-aos="fade-up"
               blurDataURL="/EventBig.svg" // Small or blurred version of the image
               alt="EventPhoto2"
+              className="aos-init"
             />
           </div>
         </div>
@@ -62,7 +54,7 @@ const OurEvent = () => {
         height={111.69}
         alt="Element 2"
         layout="responsive"
-        className="w-full"
+        className="w-full aos-init"
       />
     </div>
   );

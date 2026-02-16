@@ -1,6 +1,5 @@
 import React from "react";
 import LandingPage from "@/components/Home/LandingPage";
-import OurEvent from "@/components/Home/OurEvent";
 import Aim from "@/components/Home/Aim";
 import Footer from "@/components/Utility/Footer";
 
@@ -16,7 +15,6 @@ const HomePage = () => {
     <div>
       <LandingPage />
       <Aim />
-      <OurEvent />
     </div>
   );
 };

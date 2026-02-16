@@ -1,49 +1,311 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
 import DefaultBtn from "../Utility/DefaultBtn";
+
+const LogoImage = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <img
+      src="/gdgc.png"
+      alt="GDGC Logo"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      suppressHydrationWarning
+      style={{
+        position: "absolute",
+        top: "66px",
+        left: "50%",
+        transform: `translateX(-50%) scale(${isHovered ? 1.05 : 1})`,
+        width: "195px",
+        height: "105px",
+        opacity: isHovered ? 0.9 : 1,
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+      }}
+    />
+  );
+};
+
+const MainImage = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <img
+      src="/main.png"
+      alt="Main"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      suppressHydrationWarning
+      style={{
+        position: "absolute",
+        left: "50%",
+        transform: `translateX(-50%) scale(${isHovered ? 1.01 : 1})`,
+        top: "538px",
+        width: "1016px",
+        height: "430px",
+        zIndex: "10",
+        opacity: isHovered ? 0.98 : 1,
+        cursor: "pointer",
+        transition: "all 0.3s ease",
+      }}
+    />
+  );
+};
 
 const LandingPage = () => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col container m-auto mt-4 md:-mt-24 items-center justify-center min-h-screen bg-white px-2 sm:px-4">
-      <div className="mb-8">
-        <LazyLoadImage
-          src="/Frame 4.svg"
-          alt="Desktop SVG"
-          placeholderSrc="/Frame 4-min.svg"
-          effect="blur"
-          className="hidden sm:block w-96 h-auto sm:w-[40rem] md:w-[45rem] lg:w-[50rem]"
+    <>
+      {/* Desktop Version */}
+      <div className="hidden md:flex flex-col container m-auto mt-4 md:-mt-24 items-center justify-center min-h-screen bg-white px-2 sm:px-4 relative" style={{ minHeight: "2000px" }}>
+        <LogoImage />
+        <h1
+          style={{
+            position: "absolute",
+            width: "1114px",
+            height: "128px",
+            left: "calc(50% - 1114px / 2)",
+            top: "176px",
+            fontFamily: "Poppins",
+            fontStyle: "normal",
+            fontWeight: 600,
+            fontSize: "89px",
+            lineHeight: "134px",
+            display: "flex",
+            alignItems: "center",
+            color: "#F9AB00",
+            WebkitTextStroke: "1px #000000",
+          }}
+        >
+          Google Developer Group
+        </h1>
+
+        <div
+          style={{
+            position: "absolute",
+            width: "950px",
+            height: "96px",
+            left: "317px",
+            top: "376px",
+            fontFamily: "Poppins",
+            fontStyle: "normal",
+            fontWeight: 400,
+            fontSize: "40px",
+            lineHeight: "60px",
+            display: "flex",
+            alignItems: "center",
+            color: "#000000",
+          }}
+        >
+          GOVERNMENT COLLEGE OF ENGINEERING NAGPUR
+        </div>
+        <MainImage />
+        <div
+          style={{
+            position: "absolute",
+            width: "549px",
+            height: "128px",
+            left: "520px",
+            top: "272px",
+            fontFamily: "Poppins",
+            fontStyle: "normal",
+            fontWeight: 600,
+            fontSize: "89px",
+            lineHeight: "134px",
+            display: "flex",
+            alignItems: "center",
+            color: "#F9AB00",
+            WebkitTextStroke: "1px #000000",
+          }}
+        >
+          On Campus
+        </div>
+        <img
+          src="/polygon4.png"
+          alt="Polygon 4"
+          style={{
+            position: "absolute",
+            top: "465px",
+            left: "100px",
+            width: "60.92px",
+            height: "43.09px",
+            transform: "rotate(-7.31deg)",
+          }}
         />
         <img
-          src="/Frame 19.svg"
-          alt="Mobile SVG"
-          className="block sm:hidden w-[20rem] md:w-[35rem] lg:w-[40rem] mt-2 px-4 sm:px-2"
-          loading="lazy"
+          src="/polygon1.png"
+          alt="Polygon 1"
+          style={{
+            position: "absolute",
+            top: "142.08px",
+            left: "1301.43px",
+            width: "134px",
+            height: "139px",
+            transform: "rotate(2.72deg)",
+          }}
         />
-        <img
-          src="/Frame 191.svg"
-          alt="Additional Mobile SVG"
-          className="block sm:hidden w-[30rem] md:w-[35rem] lg:w-[40rem] mt-4 px-4 sm:px-2"
-          loading="lazy"
-        />
-        <div className="mt-10 flex justify-center items-center w-full">
-          <DefaultBtn
-            func={() => {
-              router.push("/ContactUs");
-            }}
-            name="Event with us"
-            disabled="disabled:bg-blue3"
-            HoverColor="hover:bg-blue mx-5 focus:ring-blue"
-            txtColor="w-full md:w-fit text-black border-2 border-black"
+        <div className="mb-8">
+          <img
+            src="/Frame 19.svg"
+            alt="Mobile SVG"
+            className="block sm:hidden w-[20rem] md:w-[35rem] lg:w-[40rem] mt-2 px-4 sm:px-2"
+            loading="lazy"
+          />
+          <img
+            src="/Frame 191.svg"
+            alt="Additional Mobile SVG"
+            className="block sm:hidden w-[30rem] md:w-[35rem] lg:w-[40rem] mt-4 px-4 sm:px-2"
+            loading="lazy"
           />
         </div>
+        <div
+          style={{
+            position: "absolute",
+            width: "1337px",
+            height: "372px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            top: "830px",
+            background: "transparent",
+            border: "2px solid #000000",
+            borderRadius: "62px",
+            zIndex: "1",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "30px",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "Poppins",
+              fontStyle: "normal",
+              fontSize: "24px",
+              lineHeight: "40px",
+              textAlign: "center",
+              color: "#000000",
+              width: "100%",
+              marginTop: "120px",
+            }}
+          >
+            <span style={{ fontWeight: 600 }}>At Google Developer Group on Campus, GCOEN,</span>
+            <br />
+            <span style={{ fontWeight: 400 }}>we code, design, and occasionally debug our lives. We're a student community that</span>
+            <br />
+            <span style={{ fontWeight: 400 }}>learns, builds, and breaks things (on purpose!) while exploring Google technologies.</span>
+            <br />
+            <span style={{ fontWeight: 400 }}>Workshops, hackathons, and great vibes because who said tech can't be fun?</span>
+          </div>
+        </div>
       </div>
-    </div>
+
+      {/* Mobile Version */}
+      <div className="flex md:hidden flex-col bg-white px-4 py-8 min-h-screen relative">
+        <div style={{ textAlign: "center", paddingTop: "20px", paddingBottom: "30px" }}>
+          <img
+            src="/gdgc.png"
+            alt="GDGC Logo"
+            style={{
+              width: "110px",
+              height: "auto",
+              margin: "0",
+              marginTop: "-20px",
+            }}
+          />
+        </div>
+
+        <h1
+          style={{
+            fontFamily: "Poppins",
+            fontSize: "30px",
+            fontWeight: 600,
+            textAlign: "center",
+            color: "#F9AB00",
+            WebkitTextStroke: "0.2px #000000",
+            marginBottom: "15px",
+            lineHeight: "1.3",
+          }}
+        >
+          Google Developer Group
+        </h1>
+
+        <div
+          style={{
+            fontFamily: "Poppins",
+            fontSize: "16px",
+            fontWeight: 400,
+            textAlign: "left",
+            color: "#000000",
+            marginBottom: "20px",
+            marginTop: "40px",
+          }}
+        >
+          GOVERNMENT COLLEGE OF ENGINEERING NAGPUR
+        </div>
+
+        <h2
+          style={{
+            fontFamily: "Poppins",
+            fontSize: "32px",
+            fontWeight: 600,
+            textAlign: "left",
+            color: "#F9AB00",
+            WebkitTextStroke: "0.2px #000000",
+            marginBottom: "47px",
+            lineHeight: "1.3",
+            marginTop: "-98px",
+          }}
+        >
+          On Campus
+        </h2>
+
+        <img
+          src="/main.png"
+          alt="Main"
+          style={{
+            position: "absolute",
+            width: "325px",
+            height: "153px",
+            left: "17px",
+            top: "283px",
+            background: "url(/Checker.png)",
+            border: "1px solid #000000",
+            borderRadius: "20px",
+          }}
+        />
+
+        <div
+          style={{
+            border: "2px solid #000000",
+            borderRadius: "20px",
+            padding: "20px",
+            marginBottom: "30px",
+            background: "transparent",
+            marginTop: "100px",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "Poppins",
+              fontSize: "10.5px",
+              lineHeight: "1.4",
+              textAlign: "left",
+              color: "#000000",
+              marginTop: "67px",
+              marginLeft: "-10px",
+            }}
+          >
+            <span style={{ fontWeight: 530 }}>At Google Developer Group on Campus, GCOEN,</span>
+            <br />
+            <span style={{ fontWeight: 430 }}>we code, design, and occasionally debug our lives. We're a student community that learns, builds, and breaks things (on purpose!) while exploring Google technologies. Workshops, hackathons, and great vibes because who said tech can't be fun?</span>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

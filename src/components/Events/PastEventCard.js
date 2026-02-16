@@ -22,7 +22,7 @@ console.log(StartDate);
     <div
     data-aos="fade-up"
 
-      className={`${rethink_sans400.className} min-w-[350px] p-2 flex flex-col gap-3 border-solid  border-2 border-black rounded-2xl`}
+      className={`${rethink_sans400.className} min-w-[350px] p-2 flex flex-col gap-3 border-solid border-2 border-black rounded-2xl aos-init`}
     >
       <div className="secondChild flex-grow overflow-hidden">
         <h2 className="text-lg font-semibold">{Title}</h2>
