@@ -150,16 +150,51 @@ const Navbar = () => {
 
       {/* Navbar Container */}
       <div
-        className={`z-[9999px] fixed right-0 top-12 md:relative md:top-auto md:left-auto md:mx-auto md:mt-[44px] bg-blue md:bg-transparent shadow-lg transform transition-transform duration-300 ${
-          menuOpen ? "translate-x-0" : "translate-x-full"
-        } md:!translate-x-0 md:shadow-none md:flex md:justify-center md:items-center w-[90vw] md:w-fit md:h-[65px]`}
+        className={`hidden md:flex z-[9999px] md:relative md:mx-auto md:mt-[44px] md:bg-transparent md:shadow-none md:justify-center md:items-center md:w-fit md:h-[65px]`}
       >
         <div
           className="flex flex-col bg-blue md:bg-black md:flex-row md:items-center md:justify-center gap-2 sm:gap-3 md:gap-0 overflow-visible border-black w-full md:h-[65px] md:px-0"
           style={{ borderWidth: 0, borderRadius: 24 }}
         >
           
+           <button
+            className="flex items-center border-black px-2 py-2 sm:px-[15px] sm:py-[14px] md:w-[337px] md:h-[65px] transition-colors text-nowrap w-full animate-none"
+            style={{ borderWidth: 2, borderRadius: 24, backgroundColor: hoverGDGC ? "#f8d8d8" : "white", marginRight: -1 }}
+            onClick={() => {
+              router.push("/");
+              setMenuOpen(false);
+            }}
+            onMouseEnter={() => setHoverGDGC(true)}
+            onMouseLeave={() => setHoverGDGC(false)}
+          >
+            <Image src="/vector26.png" alt="GDGC triangles" width={50} height={28} className="w-[50px] h-[28px] sm:w-[80px] sm:h-[43px]" />
+            <span className={`text-black text-xs sm:text-2xl md:text-[29px] leading-tight sm:leading-[44px] ml-1 sm:ml-[29px] whitespace-nowrap ${poppins400.className}`}>
+              GDGC GCOEN
+            </span>
+           </button>
 
+          {menuItems.map((item) => {
+            const isHovered = hoverItem === item.name;
+            
+            let bgColor = "white";
+            if (isHovered) bgColor = "#fffacd";
+            
+            return (
+              <button
+                key={item.name}
+                className={`flex items-center justify-center border-black text-black text-xs sm:text-lg md:text-[29px] leading-tight md:leading-[44px] md:h-[65px] px-2 sm:px-4 py-2 sm:py-2 ${item.width} transition-colors w-full ${poppins400.className}`}
+                style={{ borderWidth: 2, borderRadius: 24, backgroundColor: bgColor, marginLeft: -1, marginRight: -1 }}
+                onClick={() => {
+                  router.push(item.path);
+                  setMenuOpen(false);
+                }}
+                onMouseEnter={() => setHoverItem(item.name)}
+                onMouseLeave={() => setHoverItem(null)}
+              >
+                {item.name}
+              </button>
+            );
+          })}
           
         </div>
       </div>
