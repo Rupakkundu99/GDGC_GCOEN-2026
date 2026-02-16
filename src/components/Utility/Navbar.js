@@ -116,7 +116,7 @@ const Navbar = () => {
 
       {/* Mobile Hamburger Menu */}
       {menuOpen && (
-        <div className={`md:hidden fixed bg-yellow-600 top-10 left-20 right-3 border-2 border-black rounded-2xl p-2 z-50 shadow-lg ${
+        <div className={`md:hidden fixed bg-yellow-600 top-16 left-20 right-3 border-2 border-black rounded-2xl p-2 z-50 shadow-lg ${
           isMenuClosing 
             ? "animate-out slide-out-to-right duration-300 ease-in" 
             : "animate-in slide-in-from-right duration-300 ease-out"
