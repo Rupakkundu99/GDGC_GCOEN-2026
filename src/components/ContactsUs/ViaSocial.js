@@ -1,16 +1,5 @@
-import { rethink_sans400 } from "@/Fonts/Rethink";
-import { Poppins, Rethink_Sans } from "next/font/google";
+import { rethink_sans400, rethink_sans800 } from "@/Fonts/Rethink";
 import Link from "next/link";
-
-const rethink_sans = Rethink_Sans({
-  weight: "800",
-  subsets: ["latin", "latin-ext"],
-});
-
-const poppins = Poppins({
-  weight: "300",
-  subsets: ["latin"],
-});
 
 const SocialLinks = [
   {
@@ -56,7 +45,7 @@ const ViaSocial = () => {
           ))}
         </div>
         <p
-          className={`text-3xl md:text-4xl font-bold pt-2 pb-5 mb-1 text-center ${rethink_sans.className}`}
+          className={`text-3xl md:text-4xl font-bold pt-2 pb-5 mb-1 text-center ${rethink_sans800.className}`}
         >
           or
         </p>

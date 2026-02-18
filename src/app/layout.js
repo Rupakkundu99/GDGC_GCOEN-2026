@@ -1,6 +1,6 @@
 import RenderAllModal from "@/components/Modal/RenderedAllModal";
 import { AOSInit } from "@/components/Utility/aos";
-import Footer from "@/components/Utility/Footer";
+import FooterWrapper from "@/components/Utility/FooterWrapper";
 import Navbar from "@/components/Utility/Navbar";
 import { AuthProvider } from "@/context/AuthContext";
 import { Toaster } from "react-hot-toast";
@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           <div className=" md:pt-10 text-base md:text-lg ">{children}</div>{" "}
         </AuthProvider>
-        <Footer />
+        <FooterWrapper />
       </body>
     </html>
   );

@@ -4,15 +4,10 @@ import { AddDataToCollection } from "@/Services/Appwrite";
 import { ContactCollection } from "@/config/appwrite";
 import { thankContact } from "@/sampledata/HTMLTemplate";
 import { useState } from "react";
-import { createGlobalStyle } from "styled-components";
 import DefaultBtn from "../Utility/DefaultBtn";
 import ThankYouPage from "./ThankYouContact";
 
-const GlobalStyle = createGlobalStyle`
-  * {
-    font-family: "Segoe UI", sans-serif !important;
-  }
-`;
+
 
 const ViaEmail = () => {
   const [errorMsg, seterrorMsg] = useState("");
@@ -102,7 +97,7 @@ const ViaEmail = () => {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <GlobalStyle />
+
       <form
         onSubmit={handleSubmit}
         className="md:mt-5 p-5 flex-col gap-5 flex border-2 rounded-3xl border-black"

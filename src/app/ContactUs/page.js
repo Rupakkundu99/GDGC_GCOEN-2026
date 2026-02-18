@@ -1,18 +1,12 @@
 // import ThankYouPage from "@/components/ContactsUs/ThankYouContact";
 import ViaEmail from "@/components/ContactsUs/ViaEmail";
 import ViaSocial from "@/components/ContactsUs/ViaSocial";
-import { Rethink_Sans } from "next/font/google";
-
+import { rethink_sans800 } from "@/Fonts/Rethink";
 
 export const metadata = {
   title: "Contact Us",
   description: "Contact us page",
 };
-
-const rethink_sans = Rethink_Sans({
-  weight: "800",
-  subsets: ["latin", "latin-ext"],
-});
 
 const ContactUs = () => {
   return (
@@ -21,7 +15,7 @@ const ContactUs = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-10 gap-5">
             <div className="w-full max-w-2xl mx-auto">
               <p
-                className={`text-3xl md:text-4xl font-bold mb-1  ${rethink_sans.className}`}
+                className={`text-3xl md:text-4xl font-bold mb-1  ${rethink_sans800.className}`}
               >
                 Contact us
               </p>

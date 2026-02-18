@@ -15,4 +15,10 @@ const poppins800 = Poppins({
   subsets: ["latin", "latin-ext"],
 });
 
-export { poppins400, poppins600, poppins800 };
+const poppins300 = Poppins({
+  weight: "300",
+  subsets: ["latin", "latin-ext"],
+});
+
+export { poppins300, poppins400, poppins600, poppins800 };
+

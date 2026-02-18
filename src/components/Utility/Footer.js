@@ -1,47 +1,23 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
+import { rethink_sans400, rethink_sans800 } from "@/Fonts/Rethink";
 
 /**
- * Stable Social Link component with zero movement and a soft glow on hover.
+ * Updated SocialButton based on ViaSocial UI.
+ * Replaces the old image-only SocialLink.
  */
-const SocialLink = ({ href, imageAlt, imageSrc, whiteImageSrc }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const SocialButton = ({ icon, link, label }) => {
   return (
-    <a
-      href={href}
+    <Link
+      href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-block no-underline"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      className={`group text-xs md:text-sm text-black ${rethink_sans400.className} flex items-center justify-center border border-black rounded-full px-4 py-2 gap-2 bg-white hover:border-[#FCCE48] hover:text-[#FCCE48] transition-all duration-300 whitespace-nowrap hover:-translate-y-1 shadow-sm hover:shadow-md`}
     >
-      <div style={{ 
-        width: "140px", 
-        height: "44px", 
-        display: "flex", 
-        alignItems: "center", 
-        justifyContent: "center",
-        // Container has no transition or transform
-      }}>
-        <img
-          src={isHovered && whiteImageSrc ? whiteImageSrc : imageSrc}
-          alt={imageAlt}
-          suppressHydrationWarning
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
-            // Size is constant; only filter and opacity change
-            transition: "filter 0.3s ease, opacity 0.3s ease",
-            filter: isHovered ? "drop-shadow(0 0 10px rgba(0, 0, 0, 0.15))" : "none",
-            opacity: isHovered ? 0.95 : 1,
-            cursor: "pointer",
-            transform: "none", // Explicitly disable any transforms
-          }}
-        />
-      </div>
-    </a>
+      <i className={`uil ${icon} text-base md:text-xl text-black group-hover:text-[#FCCE48] transition-colors flex-shrink-0`} />
+      <span className="font-medium">{label}</span>
+    </Link>
   );
 };
 
@@ -58,7 +34,7 @@ const LogoImage = () => {
       onMouseLeave={() => setIsHovered(false)}
       style={{
         height: "80px",
-        width: "350px", // Static width container
+        width: "350px", 
       }}
     >
       <img
@@ -70,11 +46,10 @@ const LogoImage = () => {
           width: "auto",
           maxWidth: "100%",
           cursor: "pointer",
-          // Only filter transitions
           transition: "filter 0.3s ease",
           filter: isHovered ? "drop-shadow(0 0 12px rgba(255, 212, 39, 0.45))" : "none",
           objectFit: "contain",
-          transform: "none", // Explicitly disable any transforms
+          transform: "none", 
         }}
       />
     </div>
@@ -82,6 +57,14 @@ const LogoImage = () => {
 };
 
 const Footer = () => {
+  const socialLinks = [
+    { label: "Instagram", icon: "uil-instagram", link: "https://www.instagram.com/gdgcgcoen/" },
+    { label: "Whatsapp", icon: "uil-whatsapp", link: "https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ" },
+    { label: "Linkedin", icon: "uil-linkedin", link: "https://www.linkedin.com/company/gdgoncampus-gcoen/" },
+    { label: "X.com", icon: "uil-x", link: "https://x.com/GDGCGcoen" },
+    { label: "Youtube", icon: "uil-youtube", link: "https://www.youtube.com/c/gdscgcoen3822" },
+  ];
+
   return (
     <>
       {/* ------------------------------------------------ */}
@@ -99,7 +82,7 @@ const Footer = () => {
               flexShrink: 0,
             }}
           >
-            {/* Left Section - Social Icons */}
+            {/* Left Section - Social Buttons */}
             <div
               style={{
                 position: "absolute",
@@ -110,37 +93,32 @@ const Footer = () => {
               }}
             >
               <div className="flex gap-3">
-                <SocialLink
-                  href="https://www.instagram.com/gdgcgcoen/"
-                  imageAlt="Instagram"
-                  imageSrc="/insta.png"
-                  whiteImageSrc="/whiteinsta.png"
+                <SocialButton 
+                  label={socialLinks[0].label} 
+                  icon={socialLinks[0].icon} 
+                  link={socialLinks[0].link} 
                 />
-                <SocialLink
-                  href="https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ"
-                  imageAlt="WhatsApp"
-                  imageSrc="/whatsapp.png"
-                  whiteImageSrc="/whitewhatsapp.png"
+                <SocialButton 
+                  label={socialLinks[1].label} 
+                  icon={socialLinks[1].icon} 
+                  link={socialLinks[1].link} 
                 />
-                <SocialLink
-                  href="https://www.linkedin.com/company/gdgoncampus-gcoen/"
-                  imageAlt="LinkedIn"
-                  imageSrc="/linkedin.png"
-                  whiteImageSrc="/whitelinkedin.png"
+                <SocialButton 
+                  label={socialLinks[2].label} 
+                  icon={socialLinks[2].icon} 
+                  link={socialLinks[2].link} 
                 />
               </div>
               <div className="flex gap-3">
-                <SocialLink
-                  href="https://x.com/GDGCGcoen"
-                  imageAlt="X"
-                  imageSrc="/x.png"
-                  whiteImageSrc="/whiteX.png"
+                <SocialButton 
+                  label={socialLinks[3].label} 
+                  icon={socialLinks[3].icon} 
+                  link={socialLinks[3].link} 
                 />
-                <SocialLink
-                  href="https://www.youtube.com/c/gdscgcoen3822"
-                  imageAlt="YouTube"
-                  imageSrc="/youtube.png"
-                  whiteImageSrc="/whiteyoutube.png"
+                <SocialButton 
+                  label={socialLinks[4].label} 
+                  icon={socialLinks[4].icon} 
+                  link={socialLinks[4].link} 
                 />
               </div>
             </div>
@@ -176,37 +154,32 @@ const Footer = () => {
         }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px", alignItems: "center" }}>
             <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
-              <SocialLink
-                href="https://www.instagram.com/gdgcgcoen/"
-                imageAlt="Instagram"
-                imageSrc="/insta.png"
-                whiteImageSrc="/whiteinsta.png"
+              <SocialButton 
+                label={socialLinks[0].label} 
+                icon={socialLinks[0].icon} 
+                link={socialLinks[0].link} 
               />
-              <SocialLink
-                href="https://chat.whatsapp.com/Ge1u3fw4eOzEOIiUG6z6aJ"
-                imageAlt="WhatsApp"
-                imageSrc="/whatsapp.png"
-                whiteImageSrc="/whitewhatsapp.png"
+              <SocialButton 
+                label={socialLinks[1].label} 
+                icon={socialLinks[1].icon} 
+                link={socialLinks[1].link} 
               />
-              <SocialLink
-                href="https://www.linkedin.com/company/gdgoncampus-gcoen/"
-                imageAlt="LinkedIn"
-                imageSrc="/linkedin.png"
-                whiteImageSrc="/whitelinkedin.png"
+              <SocialButton 
+                label={socialLinks[2].label} 
+                icon={socialLinks[2].icon} 
+                link={socialLinks[2].link} 
               />
             </div>
             <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
-              <SocialLink
-                href="https://x.com/GDGCGcoen"
-                imageAlt="X"
-                imageSrc="/x.png"
-                whiteImageSrc="/whiteX.png"
+              <SocialButton 
+                label={socialLinks[3].label} 
+                icon={socialLinks[3].icon} 
+                link={socialLinks[3].link} 
               />
-              <SocialLink
-                href="https://www.youtube.com/c/gdscgcoen3822"
-                imageAlt="YouTube"
-                imageSrc="/youtube.png"
-                whiteImageSrc="/whiteyoutube.png"
+              <SocialButton 
+                label={socialLinks[4].label} 
+                icon={socialLinks[4].icon} 
+                link={socialLinks[4].link} 
               />
             </div>
           </div>

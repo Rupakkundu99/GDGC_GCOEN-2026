@@ -1,4 +1,5 @@
 import ActionBtn from "@/components/Utility/ActionBtn";
+import Footer from "@/components/Utility/Footer";
 import { rethink_sans800 } from "@/Fonts/Rethink";
 
 const EventUs = () => {
@@ -107,6 +108,11 @@ const EventUs = () => {
               </div>
 
             </div>
+          </div>
+          
+          {/* FOOTER INSIDE YELLOW BACKGROUND */}
+          <div className="w-full">
+            <Footer />
           </div>
         </div>
       </div>
