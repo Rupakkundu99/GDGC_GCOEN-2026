@@ -1,10 +1,14 @@
 "use client";
-import React from "react";
-import { toast } from "react-hot-toast";
+import { AddDataToCollection } from "@/Services/Appwrite";
+import { HackOnMembers, HackOnTeams } from "@/config/appwrite";
 import { useEventRegistration } from "@/context/RegistrationPaymentContext";
+import { HackOnRegConfirmed } from "@/sampledata/HTMLTemplate";
 import { TextField } from "@mui/material";
-import { ArrowRight, UserRoundPlus } from "lucide-react";
-const TeamDetailsHackOn = () => {
+import { ArrowRight, Loader2, UserRoundPlus } from "lucide-react";
+import { useState } from "react";
+import { toast } from "react-hot-toast";
+
+const TeamDetailsHackOn = ({ onClose }) => {
   const {
     teamName,
     setTeamName,
@@ -14,14 +18,16 @@ const TeamDetailsHackOn = () => {
     setMembers,
     newMember,
     setNewMember,
-    setUserRegiSteps,
+    generateQRCodeUrl,
   } = useEventRegistration();
+
+  const [loading, setLoading] = useState(false);
 
   // Function to add a team member
   const addMember = (e) => {
     e.preventDefault();
     if (members.length >= 3) {
-      toast.error("You can add a maximum of 3 members!");
+      toast.error("You can add a maximum of 3 members (Total 4 including Leader)!");
       return;
     }
     if (newMember.phoneNo.length != 10) {
@@ -42,7 +48,7 @@ const TeamDetailsHackOn = () => {
   };
 
   // Function to send form data
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (leader.phnumber.length != 10) {
       return toast.error("Phone No must be 10 digit!");
@@ -54,21 +60,123 @@ const TeamDetailsHackOn = () => {
       !leader.phnumber ||
       !leader.college ||
       !leader.department ||
-      !leader.college
+      !leader.year
     ) {
       toast.error("Fill all the fields!");
       return;
     }
-    if (members.length < 1) {
-      toast.error("You must add at least 1 team members!");
-      return;
+    // Validation: 1-4 members total. Leader is 1. So members can be 0-3.
+    // The previous validation was members.length < 1 (requiring at least 2 people).
+    // User requested "1-4 members", so 1 person team is valid.
+    
+    try {
+      setLoading(true);
+      
+      // 1. Create Team Entry
+      const resHacON = await AddDataToCollection(HackOnTeams, {
+        TeamName: teamName,
+        LName: leader.name,
+        LEmail: leader.email,
+        LCollege: leader.college,
+        LYear: leader.year,
+        LPhoneNo: leader.phnumber,
+        LDepartment: leader.department,
+        PaymentID: "FREE",
+        Amount: "0",
+        Coupons: "N/A",
+      });
+
+      // 2. Generate QR Code
+      await generateQRCodeUrl(resHacON.$id);
+
+      // 3. Add Leader as Member
+      await AddDataToCollection(HackOnMembers, {
+        Name: leader.name,
+        PhNumber: leader.phnumber,
+        email: leader.email,
+        Role: "Leader",
+        hackOnTeams: resHacON.$id,
+      });
+
+      // 4. Add Other Members
+      await Promise.all(
+        members.map(async ({ name, phoneNo, email }) => {
+          await AddDataToCollection(HackOnMembers, {
+            Name: name,
+            PhNumber: phoneNo,
+            email: email,
+            Role: "Member",
+            hackOnTeams: resHacON.$id,
+          });
+        })
+      );
+
+      // 5. Generate Email HTML
+      const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(
+        resHacON.$id
+      )}`;
+      
+      const HTMLDATA = HackOnRegConfirmed(
+        leader.name,
+        qrCodeUrl,
+        "HackOn 2.0",
+        "10th March 2026",
+        "GCOEN",
+        members,
+        "Confirmed",
+        leader,
+        "FREE",
+        teamName,
+        "0"
+      );
+
+      // 6. Send Email
+      const resMail = await fetch("/api/SendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: leader.name,
+          email: leader.email,
+          message: HTMLDATA,
+          subject: "Registration Confirmed - HackOn 2.0",
+          attachments: [
+            {
+                filename: "RuleBook.pdf",
+                path: "https://cloud.appwrite.io/v1/storage/buckets/6773765e0004f634a5e5/files/67a3b089001be670273c/view?project=677365e100183b7a1198",
+            },
+          ],
+        }),
+      });
+
+      if (resMail.ok) {
+        toast.success("Registration successful! Check your email.");
+        setTeamName("");
+        setLeader({
+            name: "",
+            email: "",
+            college: "",
+            year: "",
+            department: "",
+            phnumber: "",
+        });
+        setMembers([]);
+        if (onClose) onClose();
+      } else {
+        toast.error("Registration failed. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error(error.message || "Something went wrong!");
+    } finally {
+      setLoading(false);
     }
-    setUserRegiSteps(2);
   };
 
   return (
-    <div className="w-full flex flex-col gap-5 md:w-[100%]">
-      <h2 className="font-semibold  text-2xl">Team Details</h2>
+    <div className="w-full flex flex-col gap-5 md:w-[100%] pb-20">
+      <h2 className="font-semibold text-2xl text-white">Team Details</h2>
       <form onSubmit={handleSubmit} className="flex-col flex gap-3">
         <TextField
           label="Team Name"
@@ -90,7 +198,7 @@ const TeamDetailsHackOn = () => {
           onChange={(e) => setTeamName(e.target.value)}
         />
         <div className="flex-col flex gap-3">
-          <h2 className="font-semibold  text-2xl">Leader Details</h2>
+          <h2 className="font-semibold text-2xl text-white">Leader Details</h2>
           <TextField
             label="Full Name"
             required={true}
@@ -229,7 +337,7 @@ const TeamDetailsHackOn = () => {
           />
         </div>
         <div className="flex-col border border-[#787878] p-2 md:p-3 rounded-md flex gap-3">
-          <h2 className="font-semibold  text-2xl">Team Members Details</h2>
+          <h2 className="font-semibold text-2xl text-white">Team Members Details</h2>
           <div className="flex rounded-md  flex-col gap-3">
             <TextField
               label="Full Name"
@@ -314,6 +422,7 @@ const TeamDetailsHackOn = () => {
                 Clear
               </button>
               <button
+                type="button"
                 onClick={addMember}
                 className="p-2  flex gap-3 items-center justify-center w-full text-black bg-white rounded-md "
               >
@@ -352,6 +461,7 @@ const TeamDetailsHackOn = () => {
                     </td>
                     <td className="p-2 border-[#787878] border bg-transparent text-center">
                       <button
+                        type="button"
                         onClick={() => deleteMember(index)}
                         className="text-red-500"
                       >
@@ -367,10 +477,18 @@ const TeamDetailsHackOn = () => {
         <div className=" z-50 md:relative md:mt-5 md:px-0  fixed bottom-0   left-0 w-full">
           <button
             type="submit"
-            className=" bg-blue flex gap-2  items-center justify-center text-black w-full text-center p-3 rounded-t-lg  font-semibold"
+            disabled={loading}
+            className=" bg-blue flex gap-2  items-center justify-center text-black w-full text-center p-3 rounded-t-lg  font-semibold disabled:bg-gray-500 disabled:cursor-not-allowed"
           >
-            Proceed to Next
-            <ArrowRight />
+            {loading ? (
+                <>
+                    <Loader2 className="animate-spin" /> Submitting...
+                </>
+            ) : (
+                <>
+                    Submit Registration <ArrowRight />
+                </>
+            )}
           </button>
         </div>
       </form>
