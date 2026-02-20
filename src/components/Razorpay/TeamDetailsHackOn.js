@@ -8,6 +8,23 @@ import { ArrowRight, Loader2, UserRoundPlus } from "lucide-react";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 
+// Shared MUI sx for dark-themed TextFields with autofill fix
+const darkFieldSx = {
+  input: { color: "white" },
+  label: { color: "#787878" },
+  "& .MuiOutlinedInput-root": {
+    "& fieldset": { borderColor: "#787878" },
+    "&:hover fieldset": { borderColor: "#468EF5" },
+    "&.Mui-focused fieldset": { borderColor: "white" },
+  },
+  "& .MuiInputLabel-root.Mui-focused": { color: "white" },
+  "& input:-webkit-autofill": {
+    WebkitBoxShadow: "0 0 0 1000px #383838 inset !important",
+    WebkitTextFillColor: "white !important",
+    caretColor: "white !important",
+  },
+};
+
 const TeamDetailsHackOn = ({ onClose }) => {
   const {
     teamName,
@@ -86,32 +103,30 @@ const TeamDetailsHackOn = ({ onClose }) => {
         Coupons: "N/A",
       });
 
-      // 2. Generate QR Code
-      await generateQRCodeUrl(resHacON.$id);
-
-      // 3. Add Leader as Member
-      await AddDataToCollection(HackOnMembers, {
-        Name: leader.name,
-        PhNumber: leader.phnumber,
-        email: leader.email,
-        Role: "Leader",
-        hackOnTeams: resHacON.$id,
-      });
-
-      // 4. Add Other Members
-      await Promise.all(
-        members.map(async ({ name, phoneNo, email }) => {
-          await AddDataToCollection(HackOnMembers, {
-            Name: name,
-            PhNumber: phoneNo,
-            email: email,
-            Role: "Member",
-            hackOnTeams: resHacON.$id,
-          });
+      // 2. Run QR code generation + Leader + Members creation in PARALLEL
+      const memberPromises = members.map(({ name, phoneNo, email }) =>
+        AddDataToCollection(HackOnMembers, {
+          Name: name,
+          PhNumber: phoneNo,
+          email: email,
+          Role: "Member",
+          hackOnTeams: resHacON.$id,
         })
       );
 
-      // 5. Generate Email HTML
+      await Promise.all([
+        generateQRCodeUrl(resHacON.$id),
+        AddDataToCollection(HackOnMembers, {
+          Name: leader.name,
+          PhNumber: leader.phnumber,
+          email: leader.email,
+          Role: "Leader",
+          hackOnTeams: resHacON.$id,
+        }),
+        ...memberPromises,
+      ]);
+
+      // 3. Generate Email HTML
       const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(
         resHacON.$id
       )}`;
@@ -130,12 +145,24 @@ const TeamDetailsHackOn = ({ onClose }) => {
         "0"
       );
 
-      // 6. Send Email
-      const resMail = await fetch("/api/SendEmail", {
+      // 4. Show success immediately, send email in background
+      toast.success("Registration successful! Confirmation email is on its way.");
+      setTeamName("");
+      setLeader({
+          name: "",
+          email: "",
+          college: "",
+          year: "",
+          department: "",
+          phnumber: "",
+      });
+      setMembers([]);
+      if (onClose) onClose();
+
+      // Fire email in background (non-blocking)
+      fetch("/api/SendEmail", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: leader.name,
           email: leader.email,
@@ -148,24 +175,10 @@ const TeamDetailsHackOn = ({ onClose }) => {
             },
           ],
         }),
+      }).catch(() => {
+        // Email failed silently — registration was already saved
+        console.warn("Email sending failed, but registration is saved.");
       });
-
-      if (resMail.ok) {
-        toast.success("Registration successful! Check your email.");
-        setTeamName("");
-        setLeader({
-            name: "",
-            email: "",
-            college: "",
-            year: "",
-            department: "",
-            phnumber: "",
-        });
-        setMembers([]);
-        if (onClose) onClose();
-      } else {
-        toast.error("Registration failed. Please try again.");
-      }
     } catch (error) {
       console.error(error);
       toast.error(error.message || "Something went wrong!");
@@ -175,7 +188,7 @@ const TeamDetailsHackOn = ({ onClose }) => {
   };
 
   return (
-    <div className="w-full flex flex-col gap-5 md:w-[100%] pb-20">
+    <div className="w-full flex flex-col gap-5 md:w-[100%] pb-4">
       <h2 className="font-semibold text-2xl text-white">Team Details</h2>
       <form onSubmit={handleSubmit} className="flex-col flex gap-3">
         <TextField
@@ -184,16 +197,7 @@ const TeamDetailsHackOn = ({ onClose }) => {
           id="outlined-size-small"
           required={true}
           size="small"
-          sx={{
-            input: { color: "white" }, // Text color
-            label: { color: "#787878" }, // Label color
-            "& .MuiOutlinedInput-root": {
-              "& fieldset": { borderColor: "#787878" }, // Default border color
-              "&:hover fieldset": { borderColor: "#468EF5" }, // Border color on hover
-              "&.Mui-focused fieldset": { borderColor: "white" }, // Border color on focus
-            },
-            "& .MuiInputLabel-root.Mui-focused": { color: "white" }, // Label color on focus
-          }}
+          sx={darkFieldSx}
           value={teamName}
           onChange={(e) => setTeamName(e.target.value)}
         />
@@ -205,16 +209,7 @@ const TeamDetailsHackOn = ({ onClose }) => {
             className="bg-[#383838] text-white border border-[#787878] "
             id="outlined-size-small"
             size="small"
-            sx={{
-              input: { color: "white" }, // Text color
-              label: { color: "#787878" }, // Label color
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": { borderColor: "#787878" }, // Default border color
-                "&:hover fieldset": { borderColor: "#468EF5" }, // Border color on hover
-                "&.Mui-focused fieldset": { borderColor: "white" }, // Border color on focus
-              },
-              "& .MuiInputLabel-root.Mui-focused": { color: "white" }, // Label color on focus
-            }}
+            sx={darkFieldSx}
             value={leader.name}
             onChange={(e) => setLeader({ ...leader, name: e.target.value })}
           />
@@ -226,16 +221,7 @@ const TeamDetailsHackOn = ({ onClose }) => {
             id="outlined-size-small"
             type="email"
             size="small"
-            sx={{
-              input: { color: "white" }, // Text color
-              label: { color: "#787878" }, // Label color
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": { borderColor: "#787878" }, // Default border color
-                "&:hover fieldset": { borderColor: "#468EF5" }, // Border color on hover
-                "&.Mui-focused fieldset": { borderColor: "white" }, // Border color on focus
-              },
-              "& .MuiInputLabel-root.Mui-focused": { color: "white" }, // Label color on focus
-            }}
+            sx={darkFieldSx}
             value={leader.email}
             onChange={(e) => setLeader({ ...leader, email: e.target.value })}
           />
@@ -246,16 +232,7 @@ const TeamDetailsHackOn = ({ onClose }) => {
             id="outlined-size-small"
             size="small"
             required={true}
-            sx={{
-              input: { color: "white" }, // Text color
-              label: { color: "#787878" }, // Label color
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": { borderColor: "#787878" }, // Default border color
-                "&:hover fieldset": { borderColor: "#468EF5" }, // Border color on hover
-                "&.Mui-focused fieldset": { borderColor: "white" }, // Border color on focus
-              },
-              "& .MuiInputLabel-root.Mui-focused": { color: "white" }, // Label color on focus
-            }}
+            sx={darkFieldSx}
             value={leader.college}
             onChange={(e) => setLeader({ ...leader, college: e.target.value })}
           />
@@ -320,16 +297,7 @@ const TeamDetailsHackOn = ({ onClose }) => {
             id="outlined-size-small"
             size="small"
             required={true}
-            sx={{
-              input: { color: "white" }, // Text color
-              label: { color: "#787878" }, // Label color
-              "& .MuiOutlinedInput-root": {
-                "& fieldset": { borderColor: "#787878" }, // Default border color
-                "&:hover fieldset": { borderColor: "#468EF5" }, // Border color on hover
-                "&.Mui-focused fieldset": { borderColor: "white" }, // Border color on focus
-              },
-              "& .MuiInputLabel-root.Mui-focused": { color: "white" }, // Label color on focus
-            }}
+            sx={darkFieldSx}
             value={leader.department}
             onChange={(e) =>
               setLeader({ ...leader, department: e.target.value })
@@ -433,7 +401,7 @@ const TeamDetailsHackOn = ({ onClose }) => {
           </div>
         </div>
         {members.length > 0 && (
-          <div className="overflow-scroll">
+          <div className="overflow-auto">
             <table className="w-full mt-2 border rounded-xl  border-[#787878]">
               <thead className="">
                 <tr className=" rounded-xl border text-white">
@@ -474,11 +442,11 @@ const TeamDetailsHackOn = ({ onClose }) => {
             </table>
           </div>
         )}
-        <div className=" z-50 md:relative md:mt-5 md:px-0  fixed bottom-0   left-0 w-full">
+        <div className="mt-5 w-full">
           <button
             type="submit"
             disabled={loading}
-            className=" bg-blue flex gap-2  items-center justify-center text-black w-full text-center p-3 rounded-t-lg  font-semibold disabled:bg-gray-500 disabled:cursor-not-allowed"
+            className="bg-blue flex gap-2 items-center justify-center text-black w-full text-center p-3 rounded-lg font-semibold disabled:bg-gray-500 disabled:cursor-not-allowed transition-colors"
           >
             {loading ? (
                 <>

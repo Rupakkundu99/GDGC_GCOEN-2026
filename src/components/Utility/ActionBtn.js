@@ -32,7 +32,7 @@ const ActionBtn = ({ text, href, onClick }) => {
         text-black
         flex items-center justify-center gap-2 md:gap-4
         transition-all duration-300 ease-out 
-        group-hover:-translate-x-1 group-hover:-translate-y-1
+        group-hover:-translate-x-[2px] group-hover:-translate-y-[2px]
       "
       onClick={onClick}
       >

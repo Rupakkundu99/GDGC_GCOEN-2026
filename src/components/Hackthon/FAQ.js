@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 const faqData = {
   general: {
@@ -103,7 +103,7 @@ const faqData = {
     ],
   },
   tc: {
-    title: "Terms and Conditions",
+    title: "Terms & Conditions",
     questions: [
       {
         question: "Terms and Conditions",
@@ -126,70 +126,75 @@ const FAQ = () => {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto p-6 mb-14 mt-10">
-      <h1 className="font-medium text-white  text-3xl md:py-5 mb-2 md:text-5xl">
+    <div className="w-full max-w-6xl mx-auto px-4 md:px-6 mb-14 mt-10">
+      {/* Section Heading */}
+      <h1 className="font-bold text-white text-2xl md:text-5xl mb-6 md:mb-8">
         FAQ
       </h1>
 
-      // ... (previous code)
+      <div className="flex flex-col md:flex-row gap-4 md:gap-6">
 
-      <div className="flex flex-col md:flex-row gap-5">
-        {/* Tabs */}
-        <div className="md:w-1/4">
-          <div className="flex flex-row sm:flex-col gap-6 overflow-x-auto sm:overflow-hidden scrollbar-hide">
+        {/* Tabs — horizontal scroll on mobile, vertical column on desktop */}
+        <div className="md:w-1/4 flex-shrink-0">
+          <div className="flex md:flex-col gap-2 md:gap-3 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
             {Object.keys(faqData).map((tab) => (
-              <div key={tab}> 
-                <button
-                  onClick={() => setActiveTab(tab)}
-                  className={`px-4 py-2 rounded-full text-left transition-colors border-solid border-white border-2 ${
-                    activeTab === tab
-                      ? "bg-yellow-1 text-black"
-                      : " text-white hover:bg-gray-700"
-                  } whitespace-nowrap`}
-                >
-                  {faqData[tab].title}
-                </button>
-              </div>
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`px-4 py-2 rounded-full text-sm md:text-base text-left transition-all duration-200 border border-white/60 whitespace-nowrap flex-shrink-0 ${
+                  activeTab === tab
+                    ? "bg-[#F9AB00] text-black border-[#F9AB00] font-semibold"
+                    : "text-white hover:bg-white/10"
+                }`}
+              >
+                {faqData[tab].title}
+              </button>
             ))}
           </div>
         </div>
 
-        {/* Questions */}
-        <div className="md:w-3/4 border-solid border-white border-2 rounded-lg">
-          <div className="bg-yellow-1 px-8 py-7  mb-6 rounded-t-md">
-            <h2 className="text-3xl  text-black flex justify-between items-center">
+        {/* Questions Panel */}
+        <div className="flex-1 border border-white/40 rounded-2xl overflow-hidden">
+          {/* Active Tab Header */}
+          <div className="bg-[#F9AB00] px-5 md:px-8 py-4 md:py-6">
+            <h2 className="text-lg md:text-2xl font-bold text-black">
               {faqData[activeTab].title}
             </h2>
           </div>
 
-          <div className="space-y-2 px-5 ">
+          {/* Accordion Items */}
+          <div className="px-4 md:px-6 py-2">
             {faqData[activeTab].questions.map((item, index) => {
               const questionId = `${activeTab}-${index}`;
+              const isOpen = expandedQuestions[questionId];
+
               return (
                 <div
                   key={questionId}
-                  className="border-b border-white last:border-0"
+                  className="border-b border-white/20 last:border-0"
                 >
                   <button
                     onClick={() => toggleQuestion(questionId)}
-                    className="w-full flex justify-between items-center py-4 text-left text-white transition-colors"
+                    className="w-full flex justify-between items-center gap-3 py-4 text-left text-white group"
                   >
-                    <span className="text-lg font-medium">{item.question}</span>
+                    <span className="text-sm md:text-lg font-medium leading-snug">
+                      {item.question}
+                    </span>
                     <ChevronDown
-                      className={`w-5 h-5 transition-transform duration-200 ${
-                        expandedQuestions[questionId] ? "rotate-180" : ""
+                      className={`w-5 h-5 flex-shrink-0 text-white/70 group-hover:text-[#F9AB00] transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
 
                   <div
-                    className={`overflow-hidden transition-all duration-200 ${
-                      expandedQuestions[questionId]
-                        ? "max-h-96 pb-4"
-                        : "max-h-0"
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      isOpen ? "max-h-[500px] pb-4" : "max-h-0"
                     }`}
                   >
-                    <p className="text-white px-4">{item.answer}</p>
+                    <p className="text-white/80 text-sm md:text-base leading-relaxed pl-1 pr-4">
+                      {item.answer}
+                    </p>
                   </div>
                 </div>
               );

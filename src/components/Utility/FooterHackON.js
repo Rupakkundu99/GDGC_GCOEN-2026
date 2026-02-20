@@ -1,18 +1,27 @@
 "use client";
+import { UserRegistrationPaymentProvider } from "@/context/RegistrationPaymentContext";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import UserRegistration from "../Razorpay/UserRegistration";
 
 const FooterHackON = () => {
+  const [showRegistration, setShowRegistration] = useState(false);
+
   return (
+    <UserRegistrationPaymentProvider>
     <footer className="w-full bg-black py-12">
       <div className="container mx-auto flex flex-col items-center gap-8 px-4">
 
-        {/* Register Box from Figma */}
+        {/* Registration Modal */}
+        {showRegistration && (
+          <UserRegistration onClose={() => setShowRegistration(false)} />
+        )}
+
         {/* Register Box from Figma (Box + Hoverable Button) */}
-<Link
-  href="https://your-register-link.com"
-  target="_blank"
-  className="relative w-full max-w-xl"
+<button
+  onClick={() => setShowRegistration(true)}
+  className="relative w-full max-w-xl bg-transparent border-none p-0 cursor-pointer"
 >
   {/* Outer Box */}
   <Image
@@ -53,7 +62,7 @@ const FooterHackON = () => {
       className="w-full hidden transition-all duration-200 group-hover:block"
     />
   </div>
-</Link>
+</button>
 
 
 
@@ -116,6 +125,7 @@ hover:text-black"
   <div className="flex-1 h-[1.5px] bg-white/80"></div>
 </div>
     </footer>
+    </UserRegistrationPaymentProvider>
   );
 };
 

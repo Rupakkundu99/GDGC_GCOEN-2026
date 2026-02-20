@@ -158,7 +158,7 @@ const Navbar = () => {
         >
           
            <button
-            className="flex items-center border-black px-2 py-2 sm:px-[10px] sm:py-[10px] md:w-[170px] md:h-[50px] lg:w-[240px] xl:w-[280px] xl:h-[55px] 2xl:w-[337px] 2xl:h-[65px] transition-colors text-nowrap w-full animate-none"
+            className="flex items-center border-black  py-2 sm:px-[10px] sm:py-[10px] md:w-[170px] md:h-[50px] lg:w-[240px] xl:w-[280px] xl:h-[55px] 2xl:w-[337px] 2xl:h-[65px] transition-colors text-nowrap w-full animate-none"
             style={{ borderWidth: 2, borderRadius: 12, backgroundColor: hoverGDGC ? "#f8d8d8" : "white", marginRight: -1 }}
             onClick={() => {
               router.push("/");
@@ -167,8 +167,8 @@ const Navbar = () => {
             onMouseEnter={() => setHoverGDGC(true)}
             onMouseLeave={() => setHoverGDGC(false)}
           >
-            <Image src="/vector26.png" alt="GDGC triangles" width={50} height={28} className="w-[30px] h-auto md:w-[35px] lg:w-[40px] xl:w-[50px] 2xl:w-[80px] h-auto" />
-            <span className={`text-black text-xs sm:text-lg md:text-xs lg:text-lg xl:text-2xl 2xl:text-[29px] leading-tight sm:leading-[30px] xl:leading-[40px] 2xl:leading-[44px] ml-1 sm:ml-[15px] xl:ml-[20px] 2xl:ml-[29px] whitespace-nowrap ${poppins400.className}`}>
+            <Image src="/vector26.png" alt="GDGC triangles" width={45} height={30} className="w-[38px] h-auto md:w-[48px] lg:w-[55px] xl:w-[60px] 2xl:w-[100px] h-auto" />
+            <span className={`text-black text-xs sm:text-lg md:text-xs lg:text-lg xl:text-2xl 2xl:text-[29px] leading-tight sm:leading-[30px] xl:leading-[40px] 2xl:leading-[44px]  sm:ml-[15px] xl:ml-[20px] 2xl:ml-[6px] whitespace-nowrap ${poppins400.className}`}>
               GDGC GCOEN
             </span>
            </button>

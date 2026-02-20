@@ -8,6 +8,17 @@ const UserRegistration = ({ onClose }) => {
   return (
     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
       <div className="bg-[#282828] w-full max-w-3xl rounded-2xl border border-white/20 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col relative">
+          {/* Global autofill fix for dark form fields */}
+          <style jsx global>{`
+            input:-webkit-autofill,
+            input:-webkit-autofill:hover,
+            input:-webkit-autofill:focus {
+              -webkit-box-shadow: 0 0 0 1000px #383838 inset !important;
+              -webkit-text-fill-color: white !important;
+              caret-color: white !important;
+              transition: background-color 5000s ease-in-out 0s;
+            }
+          `}</style>
         {/* Close Button */}
         <button 
           onClick={onClose}
@@ -18,7 +29,7 @@ const UserRegistration = ({ onClose }) => {
           </svg>
         </button>
 
-        <div className="p-6 md:p-8 overflow-y-auto custom-scrollbar">
+        <div className="p-4 md:p-8 overflow-y-auto" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', WebkitOverflowScrolling: 'touch' }}>
           <div className="flex flex-col items-center mb-8">
             <Image
               src="/HackOnLogoBlue.svg"

@@ -373,7 +373,7 @@ export const HackOnRegConfirmed = (
           </head>
           <body style=' color:black; font-family: Arial, sans-serif; margin: 0; width: 100%;'>
               <div style='max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 10px 6px rgba(0, 0, 0, 0.1); overflow: hidden; border: 1px solid gray;'>
-                  <img src="https://cloud.appwrite.io/v1/storage/buckets/6759caf200334d2297e8/files/67713c8800232ee9dd35/view?project=6749e597002403b3c2d4" alt="GDG Logo" style='width: 100%;' />
+                  <img src="https://fra.cloud.appwrite.io/v1/storage/buckets/6773764900046dc9e410/files/6998b71b0025feed631c/view?project=677365e100183b7a1198&mode=admin" alt="HackOn Logo" style='width: 100%;' />
                   <div style='padding: 20px; text-align: justify;'>
                       <p style="color:black; font-size: 16px;">Dear <strong>${name}</strong>,</p>
                       <p style="color:black; font-size: 16px;">We're thrilled to confirm your registration for the event: <b>${EventName}</b></p>
@@ -381,7 +381,7 @@ export const HackOnRegConfirmed = (
                       <p style="color:black; font-size: 16px;"><strong>Venue:</strong> ${eventLocation}</p>
                       <p style="color:black; font-size: 16px;">Here are your team details:</p>
                       <p style="font-size: 16px; color:black;"><strong>Team Name:</strong> ${TeamName}</p>
-                      <table style='width: 100%; border-collapse: collapse; margin-top: 20px; color:black;'>
+                      <table style='width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 20px;color:black;'>
                           <tr>
                               <th style='border: 1px solid black; padding: 5px 10px; font-size: 10px; color:black; text-align: left;'>Name</th>
                               <th style='border: 1px solid black; padding: 5px 10px; font-size: 10px; color:black; text-align: left;'>Email</th>
@@ -394,23 +394,19 @@ export const HackOnRegConfirmed = (
                           </tr>
                           ${memberRows}
                       </table>
-                      <p style="font-size: 16px; margin-top:30px; color:black;"><strong>Payment Status:</strong> ${paymentStatus}</p>
-                      <p style="font-size: 16px; color:black;"><strong>Payment ID:</strong> ${paymentID}</p>
-                      <p style="font-size: 16px; color:black;"><strong>Paid:</strong>₹ ${AmPaid}</p>
-                      <strong>Follow this link to join my WhatsApp group:</strong>
+                       <strong>Follow this link to join my WhatsApp group:</strong>
                                 <br />
                                 <a
                                 style="color:blue;"
-                                    href="https://chat.whatsapp.com/Hd5IZDgZfnX83xETYDD6QR"
+                                    href="https://chat.whatsapp.com/EoBZ55Kuczb5THXbD6GVUS?mode=gi_t"
                                     target="_blank"
                                 >
-                                    https://chat.whatsapp.com/Hd5IZDgZfnX83xETYDD6QR
+                                    https://chat.whatsapp.com/EoBZ55Kuczb5THXbD6GVUS?mode=gi_t
                                 </a>
                       </p>
                       <p style="font-size: 16px; color:black;">Thank you for joining us! We look forward to welcoming you to the event.</p>
                       <div style="text-align: center; margin-top: 20px;">
-                          <img src="${qrCode}" style="width: 150px; height: 150px; display: block; margin: auto;" alt="QR Code" />
-                      </div>
+                          </div>
                   </div>
                   <div style='background-color: #eeeeee; padding: 10px; text-align: center; font-size: 12px; color: #777;'>
                       If you have any questions, feel free to reach out to us. <br />

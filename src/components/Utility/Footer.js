@@ -24,18 +24,18 @@ const SocialButton = ({ icon, link, label }) => {
 
 /**
  * Stable Logo component with constant size and golden glow.
+ * (Removed absolute positioning to prevent overlap)
  */
 const LogoImage = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div 
-      className="absolute right-[30px] flex items-center justify-center"
+      className="flex items-center justify-end w-full max-w-[350px]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
         height: "80px",
-        width: "350px", 
       }}
     >
       <img
@@ -62,8 +62,8 @@ const Footer = () => {
 
   // Condition to hide the footer on "/Teams", "/Events", and "/ContactUs"
   if (pathname && (pathname.startsWith("/Teams") || pathname.startsWith("/Events") || pathname.startsWith("/ContactUs") || pathname.startsWith("/Blogs"))) {
-  return null; 
-}
+    return null; 
+  }
 
   const socialLinks = [
     { label: "Instagram", icon: "uil-instagram", link: "https://www.instagram.com/gdgcgcoen/" },
@@ -81,26 +81,14 @@ const Footer = () => {
       <footer className="hidden md:flex justify-center w-full py-10 bg-transparent relative z-30">
         <div className="container m-auto px-4 flex justify-center">
           
+          {/* Main Pill Box - Converted to Flexbox layout */}
           <div
-            className="border-2 border-black rounded-[62px] bg-white relative flex items-center justify-center shadow-lg"
-            style={{
-              width: "1250px",
-              height: "180px",
-              maxWidth: "100%",
-              flexShrink: 0,
-            }}
+            className="border-2 border-black rounded-[62px] bg-white w-full max-w-[1250px] min-h-[180px] flex items-center justify-between px-6 lg:px-12 py-6 shadow-lg gap-4"
           >
             {/* Left Section - Social Buttons */}
-            <div
-              style={{
-                position: "absolute",
-                left: "40px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "12px",
-              }}
-            >
-              <div className="flex gap-3">
+            {/* flex-1 ensures it shares space evenly with the right side */}
+            <div className="flex-1 flex flex-col gap-3">
+              <div className="flex flex-wrap gap-3">
                 <SocialButton 
                   label={socialLinks[0].label} 
                   icon={socialLinks[0].icon} 
@@ -117,7 +105,7 @@ const Footer = () => {
                   link={socialLinks[2].link} 
                 />
               </div>
-              <div className="flex gap-3">
+              <div className="flex flex-wrap gap-3">
                 <SocialButton 
                   label={socialLinks[3].label} 
                   icon={socialLinks[3].icon} 
@@ -132,16 +120,19 @@ const Footer = () => {
             </div>
 
             {/* Center Graphic */}
-            <div style={{ width: "80px", flexShrink: 0 }}>
+            <div className="w-[80px] lg:w-[110px] flex-shrink-0 flex justify-center">
               <img
-                src="/gdgfooter.png"
+                src="/vector26.png"
                 alt="Vector"
                 className="w-full h-auto object-contain"
               />
             </div>
 
             {/* Right Section - Logo */}
-            <LogoImage />
+            {/* flex-1 ensures it pushes the center image directly into the middle */}
+            <div className="flex-1 flex justify-end">
+              <LogoImage />
+            </div>
           </div>
         </div>
       </footer>
@@ -192,9 +183,9 @@ const Footer = () => {
             </div>
           </div>
           <img
-            src="/gdgfooter.png"
+            src="/vector26.png"
             alt="Vector"
-            style={{ width: "60px", height: "auto" }}
+            style={{ width: "80px", height: "auto" }}
           />
           <div style={{ width: "280px", height: "auto" }}>
             <img
