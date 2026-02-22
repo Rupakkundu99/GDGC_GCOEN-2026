@@ -1,2 +1,2 @@
-export const baseURL = 'https://gdgc-gcoen.vercel.app';
+export const baseURL = 'https://gdgcgcoen.online';
 
