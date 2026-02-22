@@ -1,16 +1,16 @@
 "use client";
-import { createContext, useState, useEffect, useContext } from "react";
-import {
-  AppwriteDatabase,
-  GDGCDatabase,
-  ID,
-  UserAccount,
-  UsersCollection,
-} from "@/config/appwrite";
-import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
 import { AddDataToCollection, GetSingleDocument } from "@/Services/Appwrite";
+import {
+    AppwriteDatabase,
+    GDGCDatabase,
+    ID,
+    UserAccount,
+    UsersCollection,
+} from "@/config/appwrite";
 import { welcomeUser } from "@/sampledata/HTMLTemplate";
+import { useRouter } from "next/navigation";
+import { createContext, useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
@@ -39,7 +39,7 @@ const [isRatingOpen, setisRatingOpen] = useState(false)
       setisLogin(true);
       return setUser(UserCollectionData);
     } catch (error) {
-      console.log(error.message);
+      // Expected for guest users — no active session
       setUser(null);
     } finally {
       setLoading(false);

@@ -1,7 +1,7 @@
 "use client";
-import { useState } from "react";
+import { rethink_sans400 } from "@/Fonts/Rethink";
 import Link from "next/link";
-import { rethink_sans400, rethink_sans800 } from "@/Fonts/Rethink";
+import { useState } from "react";
 
 /**
  * Updated SocialButton
