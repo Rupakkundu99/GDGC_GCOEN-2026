@@ -113,7 +113,7 @@ hover:text-black"
   {/* Logo */}
   <div className="px-4 md:px-6 shrink-0">
     <Image
-      src="/gdc-on-campus-logo.svg"
+      src="/footer69.png"
       alt="Google Developer Group On Campus GCOEN"
       width={700}
       height={120}

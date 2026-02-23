@@ -26,7 +26,7 @@ const Hackon = () => {
       <JoinCommunity />
       <FollowForUpdates />
       
-      <HackOnPartners />
+      {/* <HackOnPartners /> */}
       <FAQ />
       {/* <Image src="/HackOnStrip.svg" width={20} height={30} className="w-full" /> */}
       <FooterHackON />{" "}
