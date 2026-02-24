@@ -20,11 +20,14 @@ const FollowForUpdates = () => {
           src="/logo_whatsapp.svg"
           alt="WhatsApp"
         />
+        
+        {/* FIX: Removed the imgClass="w-5 md:w-7" so it uses the default size! */}
         <SocialCard
           href="https://x.com/GDGCGcoen"
-          src="/x.svg"
+          src="/Frame 66.svg"
           alt="X"
         />
+        
         <SocialCard
           href="https://discord.gg/SdJmdGaJ"
           src="/logo_discord.svg"
@@ -46,22 +49,20 @@ const FollowForUpdates = () => {
 
 export default FollowForUpdates;
 
-const SocialCard = ({ href, src, alt }) => {
+const SocialCard = ({ href, src, alt, imgClass = "w-8 md:w-12" }) => {
   return (
     <Link
       href={href}
       target="_blank"
-      className="group w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-white/20 bg-black flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-white hover:border-white hover:shadow-[0_0_25px_rgba(255,255,255,0.25)]"
+      className="group w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-white/20 bg-black flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-white hover:border-white hover:shadow-[0_0_25px_rgba(255,255,255,0.25)] overflow-hidden"
     >
       <Image
         src={src}
         alt={alt}
         width={60}
         height={60}
-        className="w-8 md:w-12 transition-all duration-300 group-hover:brightness-0"
+        className={`${imgClass} object-contain transition-all duration-300 group-hover:brightness-0`}
       />
     </Link>
   );
 };
-
-
