@@ -91,7 +91,7 @@ const EventUs = () => {
           <div className="h-10 md:h-20"></div>
 
           {/* FEEDBACK/CTA CARD */}
-          <div className="w-full max-w-[1200px] mb-20 relative px-2 md:px-4 flex justify-center">
+          {/* <div className="w-full max-w-[1200px] mb-20 relative px-2 md:px-4 flex justify-center">
             <div className="relative w-full shadow-[4px_4px_0_0_rgba(0,0,0,1)] md:shadow-[10px_10px_0_0_rgba(0,0,0,1)] rounded-[40px] md:rounded-[60px] overflow-hidden bg-[#e5e5e5] border-2 md:border-4 border-black">
 
               <div className="pt-8 pb-16 md:pt-16 md:pb-32 text-center px-6 relative z-0">
@@ -103,12 +103,12 @@ const EventUs = () => {
                 </p>
               </div>
 
-              {/* Yellow Layer */}
+              
               <div className="absolute left-0 right-0 h-16 md:h-32 -mt-12 md:-mt-24 z-10">
                 <div className="w-full h-full bg-[#ffd427] rounded-t-[30px] md:rounded-t-[50px] border-t-2 md:border-t-4 border-black"></div>
               </div>
 
-              {/* White Layer */}
+             
               <div className="relative bg-white -mt-[40px] md:-mt-[86px] pt-8 pb-8 md:pt-16 md:pb-16 rounded-t-[30px] md:rounded-t-[50px] border-t-2 md:border-t-4 border-black z-20 px-6 text-center">
                 <div className="flex justify-center scale-90 md:scale-100">
                   <ActionBtn text="Register Now" href="/hackon" />
@@ -116,7 +116,7 @@ const EventUs = () => {
               </div>
 
             </div>
-          </div>
+          </div> */}
 
           {/* FOOTER INSIDE YELLOW BACKGROUND */}
           <div className="w-full mb-10 md:mb-16">
