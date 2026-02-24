@@ -135,6 +135,17 @@ const SubmissionProgress = ({ submissionState, onClose }) => {
           <p className="text-white/50 text-xs sm:text-sm text-center max-w-xs leading-relaxed">
             A confirmation email has been sent to your inbox. Check your spam folder if you don't see it.
           </p>
+          <p className="text-white/70 text-xs sm:text-sm text-center max-w-xs leading-relaxed">
+            Join our WhatsApp group for further updates:{" "}
+            <a
+              href="https://chat.whatsapp.com/EoBZ55Kuczb5THXbD6GVUS?mode=gi_t"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#25D366] font-semibold underline hover:text-[#128C7E] transition-colors"
+            >
+              Join WhatsApp Group
+            </a>
+          </p>
           <button
             onClick={onClose}
             className="bg-gradient-to-r from-[#468EF5] to-[#1a56db] text-white px-10 sm:px-12 py-2.5 sm:py-3 rounded-xl font-semibold text-sm sm:text-base hover:shadow-[0_0_20px_rgba(70,142,245,0.3)] transition-all duration-300 hover:scale-105 active:scale-95"
