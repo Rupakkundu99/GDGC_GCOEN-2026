@@ -59,7 +59,7 @@ const EventBlogFooter = () => {
     { label: "Whatsapp", icon: "uil-whatsapp", link: "https://chat.whatsapp.com/DTW7i4taVZ0GPs8KZgYmGu?mode=gi_t" },
     { label: "Linkedin", icon: "uil-linkedin", link: "https://www.linkedin.com/company/gdgoncampus-gcoen/" },
     { label: "X.com", icon: "uil-x", link: "https://x.com/GDGCGcoen" },
-    { label: "Youtube", icon: "uil-youtube", link: "https://www.youtube.com/c/gdscgcoen3822" },
+    { label: "Youtube", icon: "uil-youtube", link: "http://www.youtube.com/@gdscgcoen3822" },
   ];
 
   return (
