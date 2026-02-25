@@ -18,7 +18,7 @@ const LandingPageHackOn = () => {
         {/* GDGC GCOEN Logo Button */}
         <div className="flex justify-start mt-5 ml-5 md:mt-10 md:ml-10 p-3 md:p-5">
           <a
-            href="#"
+            href="/"
             className="inline-flex items-center gap-2 md:gap-4 px-4 md:px-8 py-2 md:py-3 bg-transparent border-[2px] md:border-[3px] border-white rounded-full 
                        transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_4px_15px_rgba(255,215,0,0.3)]
                        group cursor-pointer"
