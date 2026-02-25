@@ -110,6 +110,17 @@ const EventUs = () => {
 
              
               <div className="relative bg-white -mt-[40px] md:-mt-[86px] pt-8 pb-8 md:pt-16 md:pb-16 rounded-t-[30px] md:rounded-t-[50px] border-t-2 md:border-t-4 border-black z-20 px-6 text-center">
+                {/* HackOn Banner */}
+                <div className="flex justify-center mb-6 md:mb-10 px-4">
+                  <a href="/hackon" className="block w-full max-w-[280px] sm:max-w-[340px] md:max-w-[400px] lg:max-w-[450px]">
+                    <img
+                      src="/hackonbanner/HackOn 2.0 official Poster.png"
+                      alt="HackOn 2.0 Official Poster"
+                      className="w-full h-auto rounded-2xl md:rounded-3xl border-2 md:border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] md:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]"
+                    />
+                  </a>
+                </div>
+
                 <div className="flex justify-center scale-90 md:scale-100">
                   <ActionBtn text="Register Now" href="/hackon" />
                 </div>
