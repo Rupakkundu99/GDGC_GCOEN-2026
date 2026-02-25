@@ -66,12 +66,14 @@ const ViaSocial = () => {
         className="relative z-10 bg-white border border-black 
         rounded-[18px] md:rounded-3xl px-5 py-4 md:px-8 md:py-6 shadow-sm w-full 
         cursor-pointer transition-all duration-300 ease-in-out
-        hover:bg-[rgba(255,249,221,1)] hover:-translate-y-1 hover:shadow-md"
+        hover:bg-[rgba(255,249,221,1)] hover:-translate-y-1 hover:shadow-md
+        flex flex-col gap-1 md:gap-2" 
       >
-        <p className="text-xl sm:text-2xl md:text-3xl font-medium">
+        {/* FIX: Added leading-snug and structured the gap in the parent div */}
+        <p className="text-xl sm:text-2xl md:text-3xl font-medium leading-snug">
           Google Developer Group
         </p>
-        <p className="text-xl sm:text-2xl md:text-3xl font-medium">
+        <p className="text-xl sm:text-2xl md:text-3xl font-medium leading-snug">
           On Campus • GCOEN
         </p>
       </div>

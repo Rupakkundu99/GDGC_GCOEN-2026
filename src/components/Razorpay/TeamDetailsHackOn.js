@@ -419,9 +419,11 @@ const TeamDetailsHackOn = ({ onClose }) => {
               "& .MuiInputLabel-root.Mui-focused": { color: "white" },
             }}
             value={leader.year}
+            // --- FIX IS HERE ---
             onChange={(e) => {
               const value = e.target.value;
-              if (/^\d*$/.test(value) && parseInt(value) >= 1) {
+              // Allow it to update if it's completely empty OR if it's a valid number >= 1
+              if (value === "" || (/^\d*$/.test(value) && parseInt(value) >= 1)) {
                 setLeader({ ...leader, year: value });
               }
             }}
