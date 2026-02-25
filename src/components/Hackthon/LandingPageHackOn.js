@@ -134,7 +134,11 @@ const LandingPageHackOn = () => {
                   </a>
                 </div>
 
-                <div className="flex flex-1 border-l-[1.5px] md:border-l-2 border-r-[1.5px] md:border-r-2 border-white"></div>
+                <div className="flex flex-1 border-l-[1.5px] md:border-l-2 border-r-[1.5px] md:border-r-2 border-white items-center justify-center group">
+                  <span className="text-[12px] md:text-lg lg:text-3xl font-bold text-white group-hover:text-[#FFD700] transition-colors duration-300 whitespace-nowrap">
+                    8 Hours
+                  </span>
+                </div>
                 <div className="flex-[0.4] bg-gradient-to-br from-white/10 to-transparent"></div>
               </div>
             </div>
