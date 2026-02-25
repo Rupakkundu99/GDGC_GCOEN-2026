@@ -19,7 +19,7 @@ const Hackon = () => {
     <div className="fixed  top-0  flex-col  flex md:gap-5 left-0 w-full  overflow-y-auto overflow-x-hidden h-screen z-50 bg-black ">
       <LandingPageHackOn />
       <HackOnInfo />
-      <HackOnPrizes />
+      {/* <HackOnPrizes /> */}
       <WhyParticipant />
       <JoinCommunity />
       <FollowForUpdates />
