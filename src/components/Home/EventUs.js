@@ -6,7 +6,7 @@ const EventUs = () => {
   const imageHoverStyles = "transition-all duration-300 ease-out hover:-translate-y-1 hover:-translate-x-1 hover:border-2 hover:border-[#ffd427] hover:shadow-[4px_4px_0px_0px_#ffd427]";
 
   return (
-    <div className="w-screen min-h-screen overflow-x-hidden bg-white flex flex-col">
+    <div className="w-full min-h-screen overflow-x-hidden bg-white flex flex-col">
       <div
         className="relative w-full bg-[#ffd427] flex-grow flex flex-col"
         style={{

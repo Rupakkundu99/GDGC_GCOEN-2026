@@ -1,10 +1,5 @@
-import React from "react";
-import Image from "next/image";
-import { rethink_sans800 } from "@/Fonts/Rethink";
-import Link from "next/link";
-import GDGLogo from "@/logo1.png";
-import PersonImage from "@/Person.png";
 import ActionBtn from "@/components/Utility/ActionBtn";
+import { rethink_sans800 } from "@/Fonts/Rethink";
 
 export const metadata = {
   title: 'Home',
@@ -17,7 +12,7 @@ const HomePage = () => {
   const imageHoverStyles = "transition-all duration-300 ease-out hover:-translate-y-1 hover:-translate-x-1 hover:border-2 hover:border-[#ffd427] hover:shadow-[4px_4px_0px_0px_#ffd427]";
 
   return (
-    <div className="w-screen min-h-screen overflow-x-hidden bg-white flex flex-col">
+    <div className="w-full min-h-screen overflow-x-hidden bg-white flex flex-col">
       <div 
         className="relative w-full bg-[#ffd427] flex-grow"
         style={{
