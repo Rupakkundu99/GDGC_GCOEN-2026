@@ -26,7 +26,7 @@ const EventCard = ({
         title={Title}
         date={StartDate}
         location={location}
-        link={`/Events/${id}`}
+        link={type === "past" ? `/Events/${id}` : "/hackon"}
         label={label}
         type={type}
       />
