@@ -20,10 +20,11 @@ const Hackon = () => {
       <LandingPageHackOn />
       <HackOnInfo />
       {/* <HackOnPrizes /> */}
+      
+      <HackOnPrizes/>
       <WhyParticipant />
       <JoinCommunity />
       <FollowForUpdates />
-      <HackOnPrizes/>
       
       {/* <HackOnPartners /> */}
       <FAQ />
