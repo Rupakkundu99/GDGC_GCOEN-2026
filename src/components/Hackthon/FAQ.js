@@ -60,7 +60,7 @@ const faqData = {
            6. Team Details`,
       },
       {
-        question: "9.How will teams be shortlisted for Round 2?",
+        question: "9. How will teams be shortlisted for Round 2?",
         answer:
           `Teams will be evaluated based on:
            1. Innovation & Creativity
