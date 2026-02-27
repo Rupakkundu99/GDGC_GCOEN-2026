@@ -11,56 +11,29 @@ const faqData = {
         answer:
           "HackOn 2.0 is an 8-hour offline hackathon organized by Google Developer Group (GDG) On Campus – Government College of Engineering, Nagpur. It aims to provide students with a platform to innovate, build real-world solutions, and compete for exciting prizes.",
       },
+      
       {
-        question: "2. When and where will the event take place?",
-        answer:
-          "As mentioned in the brochure, snack boxes and refreshments will be provided. Additionally, food stalls will be available for participants to purchase items on their own.",
-      },
-      {
-        question: "3. What is the structure of the hackathon?",
+        question: "2. What is the structure of the hackathon?",
         answer: `The hackathon consists of two rounds:
                      Round 1: Online PPT Submission
                     Round 2: 8-Hour Offline Hackathon (Selected Teams Only)`,
       },
       {
         question:
-          "4. What is the team size requirement?",
+          "3. What is the team size requirement?",
         answer: "Each team must consist of 2 to 4 members.",
       },
+      
       {
-        question: "5. Who can participate?",
-        answer: "Students from engineering and related technical backgrounds are eligible to participate. (You may customize this if open to all colleges.)",
-      },
-      {
-        question: "6. Is there any registration fee?",
+        question: "4. Is there any registration fee?",
         answer:
           `Round 1 (Online PPT Submission) is completely FREE for all teams.
         Teams selected for Round 2 (Offline Hackathon) will need to pay a nominal participation fee.
-        The Round 2 fee will cover:
-        Refreshments
-        Lunch
-        Event arrangements
         The exact amount will be communicated to shortlisted teams.`,
       },
+      
       {
-        question: "7. What is the prize pool?",
-        answer:
-          "The total prize pool for HackOn 2.0 is ₹20,000.",
-      },
-      {
-        question: "8. What should be included in the Round 1 PPT?",
-        answer:
-          `The presentation should include:
-           1. Problem Statement
-           2. Proposed Solution
-           3. Target Users
-           4. Tech Stack
-           5. Implementation Plan
-           5. Expected Impact
-           6. Team Details`,
-      },
-      {
-        question: "9. How will teams be shortlisted for Round 2?",
+        question: "5. How will teams be shortlisted for Round 2?",
         answer:
           `Teams will be evaluated based on:
            1. Innovation & Creativity
@@ -69,80 +42,67 @@ const faqData = {
            4. Practical Implementation
            5.Real-World Impact`,
       },
+      
       {
-        question: "10. What should participants bring for Round 2?",
-        answer:
-          `Participants must bring:
-          Their own laptops
-          Chargers and required accessories
-          Extension boards (recommended)
-          Any required hardware (if applicable)`,
-      },
-      {
-        question: "11. Will mentors be available during the hackathon?",
-        answer:
-          "Yes, experienced mentors will be available throughout the event to guide and support participants.",
-      },
-      {
-        question: "12. Can we modify our idea after being selected?",
-        answer:
-          "Minor improvements and enhancements are allowed. However, the core idea should remain aligned with the concept submitted in Round 1.",
-      },
-      {
-        question: "13. What will participants receive?",
+        question: "6. What will participants receive?",
         answer:
           `All offline participants will receive:
-          Participation Certificates
-          Mentorship Opportunities 
-          Networking Opportunities
-          Goodies
-          Refreshments`,
+          Participation Certificates, Mentorship Opportunities, Networking Opportunities, Goodies and Refreshments`,
       },
+      
       {
-        question: "14. What happens if a team member is absent on the event day?",
-        answer:
-          "The team can continue if minimum team size (2 members) is maintained. If fewer than 2 members are present, the team may be disqualified.",
-      },
-      {
-        question: "15. Can teams from different colleges participate?",
+        question: "7. Can teams from different colleges participate?",
         answer:
           "Yes, inter-college teams are allowed. (Modify if needed.)",
       },
+      
+      
       {
-        question: "16. What kind of projects are allowed?",
-        answer:
-          `Projects should:
-           Be original
-           Not be fully pre-built before the hackathon
-           Align with the problem statement or theme (if any)
-           Be developed primarily during the 8-hour hackathon`,
-      },
-      {
-        question: "17. How will the final winners be decided?",
-        answer:
-          `Winners will be selected based on:
-           Innovation
-           Technical Implementation
-           Working Prototype
-           Presentation & Demo
-           Impact & Scalability
-           The judges’ decision will be final.`,
-      },
-      {
-        question: "18. Is internet access provided?",
-        answer:
-          "Basic internet access may be provided. However, participants are advised to carry their own backup hotspot for safety.",
-      },
-      {
-        question: "19. Will certificates be provided?",
-        answer:
-          "Yes, certificates will be provided to all eligible participants.",
-      },
-      {
-        question: "20. Who can we contact for queries?",
+        question: "8. Who can we contact for queries?",
         answer:
           `or any queries, participants can contact the event coordinators:
           Shreyash Ambure – +91 87676 07452,`
+      },
+    ],
+  },
+    community: {
+    title: "Community",
+    questions: [
+      {
+        question: "What is GDGC GCOEN?",
+        answer:
+          "GDGC GCOEN (Google Developer Group on Campus) is a student-led community that fosters learning, collaboration, and innovation using Google technologies.",
+
+
+
+
+      },
+      {
+        question: "What kind of events does GDGC GCOEN organize?",
+        answer:
+          "We host workshops, hackathons, study jams, speaker sessions, and networking events focused on Google technologies.",
+
+
+
+
+
+
+      },
+      {
+        question: "Are the events free to attend?",
+        answer:
+          "Most of our events are free, but some specialized workshops may have a minimal registration fee.",
+      },
+      {
+        question: "Where can I find updates on upcoming events?",
+        answer:
+          "You can find event updates on our website, social media pages, and official WhatsApp/Telegram groups.",
+      },
+      {
+        question: "Can I collaborate with GDGC GCOEN as a speaker or mentor?",
+        answer:
+          "Yes! If you are interested in speaking or mentoring, reach out to us via our contact page.",
+
       },
     ],
   },
