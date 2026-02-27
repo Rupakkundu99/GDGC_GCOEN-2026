@@ -142,7 +142,7 @@ const faqData = {
         question: "20. Who can we contact for queries?",
         answer:
           `or any queries, participants can contact the event coordinators:
-          Shreyash Ambure – 7894561230,`
+          Shreyash Ambure – +91 87676 07452,`
       },
     ],
   },
