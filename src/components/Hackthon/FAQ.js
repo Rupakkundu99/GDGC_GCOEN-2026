@@ -51,23 +51,23 @@ const faqData = {
         question: "8. What should be included in the Round 1 PPT?",
         answer:
           `The presentation should include:
-           Problem Statement
-           Proposed Solution
-           Target Users
-           Tech Stack
-           Implementation Plan
-           Expected Impact
-           Team Details`,
+           1. Problem Statement
+           2. Proposed Solution
+           3. Target Users
+           4. Tech Stack
+           5. Implementation Plan
+           5. Expected Impact
+           6. Team Details`,
       },
       {
         question: "9.How will teams be shortlisted for Round 2?",
         answer:
           `Teams will be evaluated based on:
-           Innovation & Creativity
-           Technical Feasibility
-           Problem-Solving Approach
-           Practical Implementation
-           Real-World Impact`,
+           1. Innovation & Creativity
+           2. Technical Feasibility
+           3. Problem-Solving Approach
+           4. Practical Implementation
+           5.Real-World Impact`,
       },
       {
         question: "10. What should participants bring for Round 2?",
@@ -234,7 +234,7 @@ const FAQ = () => {
                       isOpen ? "max-h-[500px] pb-4" : "max-h-0"
                     }`}
                   >
-                    <p className="text-white/80 text-sm md:text-base leading-relaxed pl-1 pr-4">
+                    <p className="text-white/80 text-sm md:text-base leading-relaxed pl-1 pr-4 whitespace-pre-line">
                       {item.answer}
                     </p>
                   </div>
