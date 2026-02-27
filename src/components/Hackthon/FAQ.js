@@ -53,14 +53,14 @@ const faqData = {
       {
         question: "7. Can teams from different colleges participate?",
         answer:
-          "Yes, inter-college teams are allowed. (Modify if needed.)",
+          "Yes, inter-college teams are allowed.",
       },
       
       
       {
         question: "8. Who can we contact for queries?",
         answer:
-          `or any queries, participants can contact the event coordinators:
+          `For any queries, participants can contact the event coordinator:
           Shreyash Ambure – +91 87676 07452,`
       },
     ],
